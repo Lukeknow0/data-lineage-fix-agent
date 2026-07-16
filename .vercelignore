@@ -1,0 +1,10 @@
+.venv
+.venv314
+.gocache
+.gomodcache
+.pytest_cache
+artifacts
+src
+tests
+fixture_pipeline
+scripts
