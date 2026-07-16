@@ -62,3 +62,6 @@ LIVE GATE: PASS
 - Judging-position risk: medium; deterministic safety is strong, but optional model-assisted planning may improve the “AI agent” story if added without weakening evidence.
 - Payout risk: medium; official bank transfer language is favorable, but processor/ZA Bank/mainland-China support is not guaranteed.
 - Publication risk: controlled; all consequential external actions remain blocked on confirmation.
+## Public release authorization (2026-07-16)
+
+The owner authorized creating a public repository and deploying the static Demo. Devpost submission remains intentionally deferred. The `demo/` directory is a zero-secret evidence replay; the real live gate remains local (`make gate-live`).

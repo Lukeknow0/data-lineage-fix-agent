@@ -100,3 +100,4 @@ An AI coding assistant (OpenAI Codex) was used during implementation, as permitt
 3. Run `make gate-live` and confirm `LIVE GATE: PASS`.
 4. Open `EVIDENCE.md` and `examples/verified-run/`.
 5. Run `make verify` to exercise the refusal, lineage, red-to-green, and traceability contracts.
+> Release note (2026-07-16): public repository and Demo deployment are authorized. Devpost is not being submitted yet.
