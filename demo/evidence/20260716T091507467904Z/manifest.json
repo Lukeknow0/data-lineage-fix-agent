@@ -1,0 +1,10 @@
+{
+  "EVIDENCE.md": "d1322e66efddd1ea65d75b92ed9c9a417d43d885ed979517409f6ca817f72519",
+  "after.txt": "4a2af80049953ad7d1816356cb76cee4c272b245aadaa8c4a5e94d223c39b063",
+  "before.txt": "7bdcafd99666d160058ae9d63cf16ffb67cc32d5f53cffc943ccc63b0a0ff870",
+  "context.json": "ca10c8cef9770c60edd8f02b59145c0ddde9e0a8ca0b5d4ed216f7541e57cfb0",
+  "finding.json": "f49bc3caf0396cafee35d8cd4c06aa652d01f68fdef41840974c7cbdb41222b2",
+  "patch.diff": "c8e8972957e21b0b15fc8e980f49ddd6a1b377d9d8427b2b39684122cc6f1ea8",
+  "regression_test.py": "6b6f59d15edb0a7f706d1c41900ca9fd5d03cb816f9ab2be63cb7fcc27a4c613",
+  "writeback.json": "3ceb7d5bddf16e3d522bbc441b720056b5a3d08b4dd7a4b7c5595a64194b51b3"
+}

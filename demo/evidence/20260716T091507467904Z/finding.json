@@ -1,0 +1,20 @@
+{
+  "affected_entity_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)",
+  "finding_id": "DLFA-SCHEMA-001",
+  "kind": "downstream-schema-drift",
+  "missing_field": "customer_id",
+  "owner_urns": [
+    "urn:li:corpuser:data-platform-oncall"
+  ],
+  "quality_signals": [
+    "quality_signal=breaking-schema-drift",
+    "schema_contract=v2",
+    "urn:li:tag:SchemaDriftDetected"
+  ],
+  "rationale": "DataHub schema no longer contains 'customer_id', field 'customer_key' explicitly documents the rename, and DataHub lineage identifies the mapped repository asset as downstream.",
+  "reference_count": 3,
+  "replacement_field": "customer_key",
+  "repository_file": "pipeline/customer_revenue.sql",
+  "severity": "high",
+  "source_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+}

@@ -1,0 +1,15 @@
+test_customer_revenue_query_matches_datahub_schema (test_datahub_schema_contract.DataHubSchemaContractRegression.test_customer_revenue_query_matches_datahub_schema) ... ERROR
+
+======================================================================
+ERROR: test_customer_revenue_query_matches_datahub_schema (test_datahub_schema_contract.DataHubSchemaContractRegression.test_customer_revenue_query_matches_datahub_schema)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "$PROJECT_ROOT/fixture_pipeline/workspace/tests/test_datahub_schema_contract.py", line 26, in test_customer_revenue_query_matches_datahub_schema
+    rows = connection.execute(query).fetchall()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: customer_id
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

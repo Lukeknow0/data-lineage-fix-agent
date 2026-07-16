@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "datalineage-fix-agent"
+version = "0.1.0"
+description = "A DataHub-grounded agent that fixes downstream schema drift and proves the repair."
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+license = { text = "Apache-2.0" }
+authors = [{ name = "DataLineage Fix Agent contributors" }]
+dependencies = [
+  "acryl-datahub==1.6.0.14",
+  "duckdb==1.5.4",
+  "mcp-server-datahub==0.6.0",
+  "mcp==1.28.1",
+  "sqlglot==28.10.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==9.1.1",
+  "pytest-cov==7.1.0",
+]
+
+[project.scripts]
+datalineage-fix = "data_lineage_fix_agent.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+markers = [
+  "integration: requires a running local DataHub OSS instance",
+]

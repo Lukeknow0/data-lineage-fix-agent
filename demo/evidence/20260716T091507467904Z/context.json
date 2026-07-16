@@ -1,0 +1,343 @@
+{
+  "downstream_urns": [
+    "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)"
+  ],
+  "owner_urns": [
+    "urn:li:corpuser:data-platform-oncall"
+  ],
+  "quality_signals": [
+    "quality_signal=breaking-schema-drift",
+    "schema_contract=v2",
+    "urn:li:tag:SchemaDriftDetected"
+  ],
+  "source_fields": [
+    {
+      "description": "Canonical customer key; renamed from customer_id in schema v2.",
+      "name": "customer_key",
+      "native_type": "INTEGER"
+    },
+    {
+      "description": "Stable order identifier.",
+      "name": "order_id",
+      "native_type": "INTEGER"
+    },
+    {
+      "description": "Order creation time.",
+      "name": "order_ts",
+      "native_type": "TIMESTAMP"
+    },
+    {
+      "description": "Order total in USD.",
+      "name": "total_amount",
+      "native_type": "DECIMAL"
+    }
+  ],
+  "source_properties": {
+    "quality_signal": "breaking-schema-drift",
+    "rename_hint.customer_id": "customer_key",
+    "schema_contract": "v2"
+  },
+  "source_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+  "target_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)",
+  "tool_traces": [
+    {
+      "arguments": {
+        "urns": [
+          "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+          "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)"
+        ]
+      },
+      "mcp_server": {
+        "name": "datahub",
+        "package": "mcp-server-datahub==0.6.0",
+        "version": "3.4.4"
+      },
+      "result": [
+        {
+          "name": "orders",
+          "ownership": {
+            "owners": [
+              {
+                "owner": {
+                  "properties": {
+                    "active": true,
+                    "displayName": "Data Platform On-call",
+                    "email": "data-platform-oncall@example.invalid",
+                    "title": "Technical Owner"
+                  },
+                  "urn": "urn:li:corpuser:data-platform-oncall"
+                },
+                "type": "TECHNICAL_OWNER"
+              }
+            ]
+          },
+          "platform": {
+            "name": "postgres",
+            "urn": "urn:li:dataPlatform:postgres"
+          },
+          "properties": {
+            "customProperties": [
+              {
+                "key": "schema_contract",
+                "value": "v2"
+              },
+              {
+                "key": "quality_signal",
+                "value": "breaking-schema-drift"
+              },
+              {
+                "key": "rename_hint.customer_id",
+                "value": "customer_key"
+              }
+            ],
+            "description": "Controlled source dataset after the schema v2 customer-key migration.",
+            "name": "orders"
+          },
+          "schemaMetadata": {
+            "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+            "fields": [
+              {
+                "description": "Canonical customer key; renamed from customer_id in schema v2.",
+                "fieldPath": "customer_key",
+                "nativeDataType": "INTEGER",
+                "nullable": false
+              },
+              {
+                "description": "Stable order identifier.",
+                "fieldPath": "order_id",
+                "nativeDataType": "INTEGER",
+                "nullable": false
+              },
+              {
+                "description": "Order creation time.",
+                "fieldPath": "order_ts",
+                "nativeDataType": "TIMESTAMP",
+                "nullable": false
+              },
+              {
+                "description": "Order total in USD.",
+                "fieldPath": "total_amount",
+                "nativeDataType": "DECIMAL",
+                "nullable": false
+              }
+            ],
+            "name": "ecommerce.raw.orders",
+            "platformUrn": "urn:li:dataPlatform:postgres"
+          },
+          "tags": {
+            "tags": [
+              {
+                "tag": {
+                  "properties": {
+                    "description": "A schema change has a proven downstream code impact.",
+                    "name": "SchemaDriftDetected"
+                  },
+                  "type": "TAG",
+                  "urn": "urn:li:tag:SchemaDriftDetected"
+                }
+              }
+            ]
+          },
+          "type": "DATASET",
+          "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+        },
+        {
+          "name": "mart_customer_revenue",
+          "ownership": {
+            "owners": [
+              {
+                "owner": {
+                  "properties": {
+                    "active": true,
+                    "displayName": "Data Platform On-call",
+                    "email": "data-platform-oncall@example.invalid",
+                    "title": "Technical Owner"
+                  },
+                  "urn": "urn:li:corpuser:data-platform-oncall"
+                },
+                "type": "TECHNICAL_OWNER"
+              }
+            ]
+          },
+          "platform": {
+            "name": "postgres",
+            "urn": "urn:li:dataPlatform:postgres"
+          },
+          "properties": {
+            "customProperties": [
+              {
+                "key": "repository_file",
+                "value": "pipeline/customer_revenue.sql"
+              },
+              {
+                "key": "fixture_state",
+                "value": "broken-before-agent"
+              }
+            ],
+            "description": "Customer lifetime revenue mart maintained by the controlled fixture pipeline.",
+            "name": "mart_customer_revenue"
+          },
+          "schemaMetadata": {
+            "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)",
+            "fields": [
+              {
+                "description": "Canonical customer key.",
+                "fieldPath": "customer_key",
+                "nativeDataType": "INTEGER",
+                "nullable": false
+              },
+              {
+                "description": "Summed order value.",
+                "fieldPath": "lifetime_value",
+                "nativeDataType": "DECIMAL",
+                "nullable": false
+              }
+            ],
+            "name": "analytics.mart_customer_revenue",
+            "platformUrn": "urn:li:dataPlatform:postgres"
+          },
+          "type": "DATASET",
+          "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)"
+        }
+      ],
+      "result_sha256": "9a4fba1213bae3046ee016f844dfcfb60f70035679a984660fb010aa595acaaa",
+      "tool": "get_entities"
+    },
+    {
+      "arguments": {
+        "limit": 100,
+        "offset": 0,
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+      },
+      "mcp_server": {
+        "name": "datahub",
+        "package": "mcp-server-datahub==0.6.0",
+        "version": "3.4.4"
+      },
+      "result": {
+        "fields": [
+          {
+            "description": "Canonical customer key; renamed from customer_id in schema v2.",
+            "fieldPath": "customer_key",
+            "nativeDataType": "INTEGER",
+            "nullable": false
+          },
+          {
+            "description": "Stable order identifier.",
+            "fieldPath": "order_id",
+            "nativeDataType": "INTEGER",
+            "nullable": false
+          },
+          {
+            "description": "Order creation time.",
+            "fieldPath": "order_ts",
+            "nativeDataType": "TIMESTAMP",
+            "nullable": false
+          },
+          {
+            "description": "Order total in USD.",
+            "fieldPath": "total_amount",
+            "nativeDataType": "DECIMAL",
+            "nullable": false
+          }
+        ],
+        "matchingCount": null,
+        "offset": 0,
+        "remainingCount": 0,
+        "returned": 4,
+        "totalFields": 4,
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+      },
+      "result_sha256": "7ac1c662b3e4fa863a913627f0c071541dd2bc3a090586588da798a1af49b469",
+      "tool": "list_schema_fields"
+    },
+    {
+      "arguments": {
+        "max_hops": 1,
+        "max_results": 30,
+        "offset": 0,
+        "upstream": false,
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+      },
+      "mcp_server": {
+        "name": "datahub",
+        "package": "mcp-server-datahub==0.6.0",
+        "version": "3.4.4"
+      },
+      "result": {
+        "downstreams": {
+          "hasMore": false,
+          "offset": 0,
+          "returned": 1,
+          "searchResults": [
+            {
+              "degree": 1,
+              "entity": {
+                "name": "mart_customer_revenue",
+                "ownership": {
+                  "owners": [
+                    {
+                      "owner": {
+                        "properties": {
+                          "active": true,
+                          "displayName": "Data Platform On-call",
+                          "email": "data-platform-oncall@example.invalid",
+                          "title": "Technical Owner"
+                        },
+                        "urn": "urn:li:corpuser:data-platform-oncall"
+                      },
+                      "type": "TECHNICAL_OWNER"
+                    }
+                  ]
+                },
+                "platform": {
+                  "name": "postgres",
+                  "urn": "urn:li:dataPlatform:postgres"
+                },
+                "properties": {
+                  "customProperties": [
+                    {
+                      "key": "repository_file",
+                      "value": "pipeline/customer_revenue.sql"
+                    },
+                    {
+                      "key": "fixture_state",
+                      "value": "broken-before-agent"
+                    }
+                  ],
+                  "description": "Customer lifetime revenue mart maintained by the controlled fixture pipeline.",
+                  "name": "mart_customer_revenue"
+                },
+                "schemaMetadata": {
+                  "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)",
+                  "fields": [
+                    {
+                      "description": "Canonical customer key.",
+                      "fieldPath": "customer_key",
+                      "nativeDataType": "INTEGER",
+                      "nullable": false
+                    },
+                    {
+                      "description": "Summed order value.",
+                      "fieldPath": "lifetime_value",
+                      "nativeDataType": "DECIMAL",
+                      "nullable": false
+                    }
+                  ],
+                  "name": "analytics.mart_customer_revenue",
+                  "platformUrn": "urn:li:dataPlatform:postgres"
+                },
+                "type": "DATASET",
+                "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)"
+              }
+            }
+          ],
+          "total": 1
+        }
+      },
+      "result_sha256": "b7b34512f57b6f364c8f1d4d45cfcbad7aafa9b41fe3b484815c9fbda58a0f61",
+      "tool": "get_lineage"
+    }
+  ],
+  "transport": "datahub-oss-lite-v1.6.0+official-mcp-server-v0.6.0"
+}

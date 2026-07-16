@@ -1,0 +1,119 @@
+{
+  "entity_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)",
+  "mutation": {
+    "message": "Successfully added 1 tag(s) to 1 entit(ies)",
+    "success": true
+  },
+  "readback_sha256": "d8cd2f189c118448c728ee3cd3008bc7135800fbd5d09cc349e57df465c83322",
+  "run_id": "20260716T091507467904Z",
+  "status": "written-and-read-back-via-datahub-mcp",
+  "tag_urn": "urn:li:tag:DataLineageFixVerified",
+  "tool_traces": [
+    {
+      "arguments": {
+        "entity_urns": [
+          "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)"
+        ],
+        "tag_urns": [
+          "urn:li:tag:DataLineageFixVerified"
+        ]
+      },
+      "mcp_server": {
+        "name": "datahub",
+        "package": "mcp-server-datahub==0.6.0",
+        "version": "3.4.4"
+      },
+      "result": {
+        "message": "Successfully added 1 tag(s) to 1 entit(ies)",
+        "success": true
+      },
+      "result_sha256": "dcc1216fee956a6a2ca26b37e6c212d61523f340e1b4f54b43b216df7239ee47",
+      "tool": "add_tags"
+    },
+    {
+      "arguments": {
+        "urns": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)"
+      },
+      "mcp_server": {
+        "name": "datahub",
+        "package": "mcp-server-datahub==0.6.0",
+        "version": "3.4.4"
+      },
+      "result": {
+        "name": "mart_customer_revenue",
+        "ownership": {
+          "owners": [
+            {
+              "owner": {
+                "properties": {
+                  "active": true,
+                  "displayName": "Data Platform On-call",
+                  "email": "data-platform-oncall@example.invalid",
+                  "title": "Technical Owner"
+                },
+                "urn": "urn:li:corpuser:data-platform-oncall"
+              },
+              "type": "TECHNICAL_OWNER"
+            }
+          ]
+        },
+        "platform": {
+          "name": "postgres",
+          "urn": "urn:li:dataPlatform:postgres"
+        },
+        "properties": {
+          "customProperties": [
+            {
+              "key": "repository_file",
+              "value": "pipeline/customer_revenue.sql"
+            },
+            {
+              "key": "fixture_state",
+              "value": "broken-before-agent"
+            }
+          ],
+          "description": "Customer lifetime revenue mart maintained by the controlled fixture pipeline.",
+          "name": "mart_customer_revenue"
+        },
+        "schemaMetadata": {
+          "datasetUrn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)",
+          "fields": [
+            {
+              "description": "Canonical customer key.",
+              "fieldPath": "customer_key",
+              "nativeDataType": "INTEGER",
+              "nullable": false
+            },
+            {
+              "description": "Summed order value.",
+              "fieldPath": "lifetime_value",
+              "nativeDataType": "DECIMAL",
+              "nullable": false
+            }
+          ],
+          "name": "analytics.mart_customer_revenue",
+          "platformUrn": "urn:li:dataPlatform:postgres"
+        },
+        "tags": {
+          "tags": [
+            {
+              "tag": {
+                "properties": {
+                  "description": "The downstream patch passed its generated regression test.",
+                  "name": "DataLineageFixVerified"
+                },
+                "type": "TAG",
+                "urn": "urn:li:tag:DataLineageFixVerified"
+              }
+            }
+          ]
+        },
+        "type": "DATASET",
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)"
+      },
+      "result_sha256": "d8cd2f189c118448c728ee3cd3008bc7135800fbd5d09cc349e57df465c83322",
+      "tool": "get_entities"
+    }
+  ],
+  "verification": "get_entities returned the verified tag after add_tags"
+}
