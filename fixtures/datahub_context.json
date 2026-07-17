@@ -1,0 +1,68 @@
+{
+  "source_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+  "target_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)",
+  "source_fields": [
+    {"name": "customer_key", "native_type": "INTEGER", "description": "Canonical customer key; renamed from customer_id in schema v2."},
+    {"name": "order_id", "native_type": "INTEGER", "description": "Stable order identifier."},
+    {"name": "order_ts", "native_type": "TIMESTAMP", "description": "Order creation time."},
+    {"name": "total_amount", "native_type": "DECIMAL", "description": "Order total in USD."}
+  ],
+  "downstream_urns": [
+    "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)"
+  ],
+  "owner_urns": ["urn:li:corpuser:data-platform-oncall"],
+  "quality_signals": [
+    "quality_signal=breaking-schema-drift",
+    "schema_contract=v2",
+    "urn:li:tag:SchemaDriftDetected"
+  ],
+  "transport": "offline-replay-of-datahub-mcp",
+  "tool_traces": [
+    {
+      "tool": "get_entities",
+      "arguments": {
+        "urns": [
+          "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+          "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)"
+        ]
+      },
+      "mcp_server": {"name": "datahub", "version": "3.4.4", "package": "mcp-server-datahub==0.6.0"},
+      "result_sha256": "9a4fba1213bae3046ee016f844dfcfb60f70035679a984660fb010aa595acaaa",
+      "fixture": true
+    },
+    {
+      "tool": "list_schema_fields",
+      "arguments": {
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+        "limit": 100,
+        "offset": 0
+      },
+      "mcp_server": {"name": "datahub", "version": "3.4.4", "package": "mcp-server-datahub==0.6.0"},
+      "result_sha256": "7ac1c662b3e4fa863a913627f0c071541dd2bc3a090586588da798a1af49b469",
+      "fixture": true
+    },
+    {
+      "tool": "get_lineage",
+      "arguments": {
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+        "upstream": false,
+        "max_hops": 1,
+        "max_results": 30,
+        "offset": 0
+      },
+      "mcp_server": {"name": "datahub", "version": "3.4.4", "package": "mcp-server-datahub==0.6.0"},
+      "result_sha256": "b7b34512f57b6f364c8f1d4d45cfcbad7aafa9b41fe3b484815c9fbda58a0f61",
+      "fixture": true
+    }
+  ],
+  "source_properties": {
+    "schema_contract": "v2",
+    "quality_signal": "breaking-schema-drift",
+    "rename_hint.customer_id": "customer_key"
+  },
+  "capture": {
+    "live_run_id": "20260716T090956234937Z",
+    "backend": "DataHub Lite v1.6.0 through official mcp-server-datahub 0.6.0",
+    "captured_at": "2026-07-16T09:09:56Z"
+  }
+}

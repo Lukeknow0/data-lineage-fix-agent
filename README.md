@@ -20,7 +20,9 @@ DataHub status write-back + evidence bundle
 
 ## Quick start
 
-Prerequisite: Python 3.11.
+Prerequisites: Python 3.11, Bash, Make, and curl. Run these commands from a
+source checkout; the controlled fixtures are repository assets rather than
+wheel-packaged resources.
 
 ```bash
 ./scripts/bootstrap.sh
@@ -66,7 +68,12 @@ The gate fails unless all of these are true:
 - verified status is written to the downstream DataHub entity and read back;
 - the evidence bundle contains the exact URNs, diff, test outputs, write-back result, and SHA-256 manifest.
 
-Default local GMS endpoint: `http://localhost:8080`. For authenticated DataHub, provide `DATAHUB_GMS_TOKEN` only as a server-side environment variable. Tokens are excluded from traces, artifacts, frontend code, and Git.
+The default lightweight gate starts the local bridge at
+`http://127.0.0.1:8979`. A full DataHub OSS Quickstart normally exposes GMS at
+`http://127.0.0.1:8080` and requires a running Docker daemon with sufficient
+memory. For authenticated DataHub, provide `DATAHUB_GMS_TOKEN` only as a
+server-side environment variable. Tokens are excluded from traces, artifacts,
+frontend code, and Git.
 
 ## Scenario
 
@@ -102,11 +109,16 @@ The automated suite covers the required safety contract:
 3. generated patch turns the regression from red to green;
 4. evidence traces back to DataHub URNs and MCP tool calls.
 
-Integration tests are marked `integration` and require local DataHub:
+Integration tests are marked `integration` and require a seeded local DataHub
+plus the preceding repair/write-back. The supported end-to-end entry point is:
 
 ```bash
-.venv/bin/python -m pytest -m integration
+make gate-live
 ```
+
+Running `pytest -m integration` by itself intentionally skips unless
+`RUN_DATAHUB_INTEGRATION=1` is set and the required DataHub state already
+exists.
 
 ## Design constraints
 

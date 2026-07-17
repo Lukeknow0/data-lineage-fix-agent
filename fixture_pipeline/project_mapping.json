@@ -1,0 +1,6 @@
+{
+  "source_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+  "target_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)",
+  "repository_file": "pipeline/customer_revenue.sql",
+  "table_name": "orders"
+}

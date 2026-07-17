@@ -1,0 +1,20 @@
+{
+  "transport": "datahub-oss-lite-v1.6.0+official-mcp-server-v0.6.0",
+  "source_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+  "target_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)",
+  "source_fields": ["customer_key", "order_id", "order_ts", "total_amount"],
+  "downstream_urns": [
+    "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)"
+  ],
+  "owner_urns": ["urn:li:corpuser:data-platform-oncall"],
+  "quality_signals": [
+    "quality_signal=breaking-schema-drift",
+    "schema_contract=v2",
+    "urn:li:tag:SchemaDriftDetected"
+  ],
+  "mcp_result_sha256": {
+    "get_entities": "9a4fba1213bae3046ee016f844dfcfb60f70035679a984660fb010aa595acaaa",
+    "list_schema_fields": "7ac1c662b3e4fa863a913627f0c071541dd2bc3a090586588da798a1af49b469",
+    "get_lineage": "b7b34512f57b6f364c8f1d4d45cfcbad7aafa9b41fe3b484815c9fbda58a0f61"
+  }
+}

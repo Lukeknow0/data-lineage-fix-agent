@@ -1,0 +1,4 @@
+test_customer_revenue_query_matches_datahub_schema (...) ... ok
+
+Ran 1 test
+OK

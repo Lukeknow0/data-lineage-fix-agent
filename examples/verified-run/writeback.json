@@ -1,0 +1,11 @@
+{
+  "status": "written-and-read-back-via-datahub-mcp",
+  "entity_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)",
+  "tag_urn": "urn:li:tag:DataLineageFixVerified",
+  "mutation": {
+    "success": true,
+    "message": "Successfully added 1 tag(s) to 1 entit(ies)"
+  },
+  "verification": "get_entities returned the verified tag after add_tags",
+  "readback_sha256": "d8cd2f189c118448c728ee3cd3008bc7135800fbd5d09cc349e57df465c83322"
+}

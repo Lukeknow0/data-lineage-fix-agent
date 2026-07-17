@@ -1,1 +1,110 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Data Lineage Fix Agent</title><link rel="stylesheet" href="style.css"></head><body><main><header><div class="eyebrow">RECORDED VERIFIED LOCAL RUN · 20260716T091507467904Z</div><h1>Schema drift,<br><em>closed-loop.</em></h1><p class="lede">A bounded repair agent reads DataHub context, identifies the exact downstream break, patches the repository fixture, proves the regression green, and writes the verified tag back.</p><div class="notice">Synthetic public fixture — no customer data · Browser evidence replay — not a live DataHub connection</div></header><section class="rail"><div class="step done"><b>01</b><span>Context</span><strong>✓</strong></div><div class="step done"><b>02</b><span>Finding</span><strong>✓</strong></div><div class="step done"><b>03</b><span>Patch</span><strong>✓</strong></div><div class="step done"><b>04</b><span>Regression</span><strong>✓</strong></div><div class="step done"><b>05</b><span>Write-back</span><strong>✓</strong></div></section><section class="grid"><article><label>FINDING</label><h2>DLFA-SCHEMA-001</h2><p class="big">customer_id → customer_key</p><dl><dt>Severity</dt><dd class="high">HIGH</dd><dt>Signal</dt><dd>breaking-schema-drift</dd><dt>Downstream</dt><dd>analytics.mart_customer_revenue</dd><dt>Owner</dt><dd>Data Platform On-call</dd></dl></article><article><label>REPAIR DIFF</label><pre id="diff"></pre><p class="muted">The agent follows the explicit DataHub rename hint; no model call required for this path.</p></article></section><section class="grid"><article><label>REGRESSION</label><div class="terminal"><div>BEFORE <span class="bad">✕ no such column: customer_id</span></div><div>AFTER&nbsp; <span class="good">✓ Ran 1 test in 0.000s · OK</span></div></div><a class="button" href="evidence/20260716T091507467904Z/regression_test.py">Open regression test ↗</a></article><article><label>WRITE-BACK</label><p class="big">DataLineageFixVerified</p><p class="good">✓ mutation success · read-back verified</p><p class="mono">urn:li:tag:DataLineageFixVerified</p><a class="button" href="evidence/20260716T091507467904Z/writeback.json">Inspect captured trace ↗</a></article></section><section class="integrity"><div><label>INTEGRITY</label><h2 id="status">Evidence manifest ready</h2><p>SHA-256 hashes from the captured run are published for inspection. Browser hash comparison — not a digital signature.</p></div><button id="verify">Verify evidence files</button></section><footer><span>Captured through the official DataHub MCP Server · mcp-server-datahub==0.6.0 · serverInfo 3.4.4</span><a href="https://github.com/">Public source repository ↗</a></footer></main><script>const diff='--- a/pipeline/customer_revenue.sql\n+++ b/pipeline/customer_revenue.sql\n@@ -1,6 +1,6 @@\n SELECT\n-  customer_id,\n+  customer_key,\n   SUM(total_amount) AS lifetime_value\n FROM orders\n-GROUP BY customer_id\n-ORDER BY customer_id;\n+GROUP BY customer_key\n+ORDER BY customer_key;';document.querySelector('#diff').textContent=diff;document.querySelector('#verify').onclick=async()=>{const m=await fetch('evidence/20260716T091507467904Z/manifest.json').then(r=>r.json());let ok=true;for(const [name,hash] of Object.entries(m)){const b=await fetch('evidence/20260716T091507467904Z/'+name).then(r=>r.arrayBuffer());const h=[...new Uint8Array(await crypto.subtle.digest('SHA-256',b))].map(x=>x.toString(16).padStart(2,'0')).join('');if(h!==hash)ok=false}document.querySelector('#status').textContent=ok?'✓ All 8 evidence files verified':'✕ Evidence mismatch';document.querySelector('#status').className=ok?'good':'bad'};</script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Verified evidence replay for the DataLineage Fix Agent."
+    />
+    <title>Data Lineage Fix Agent</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="eyebrow">
+          RECORDED VERIFIED LOCAL RUN · 20260716T091507467904Z
+        </div>
+        <h1>Schema drift,<br /><em>closed-loop.</em></h1>
+        <p class="lede">
+          A bounded repair agent reads DataHub context, identifies the exact
+          downstream break, patches the repository fixture, proves the regression
+          green, and writes the verified tag back.
+        </p>
+        <div class="notice">
+          Synthetic public fixture — no customer data · Browser evidence replay —
+          not a live DataHub connection
+        </div>
+      </header>
+
+      <section class="rail" aria-label="Captured run stages">
+        <div class="step done"><b>01</b><span>Context</span><strong>✓</strong></div>
+        <div class="step done"><b>02</b><span>Finding</span><strong>✓</strong></div>
+        <div class="step done"><b>03</b><span>Patch</span><strong>✓</strong></div>
+        <div class="step done"><b>04</b><span>Regression</span><strong>✓</strong></div>
+        <div class="step done"><b>05</b><span>Write-back</span><strong>✓</strong></div>
+      </section>
+
+      <section class="grid">
+        <article>
+          <label>FINDING</label>
+          <h2>DLFA-SCHEMA-001</h2>
+          <p class="big">customer_id → customer_key</p>
+          <dl>
+            <dt>Severity</dt><dd class="high">HIGH</dd>
+            <dt>Signal</dt><dd>breaking-schema-drift</dd>
+            <dt>Downstream</dt><dd>analytics.mart_customer_revenue</dd>
+            <dt>Owner</dt><dd>Data Platform On-call</dd>
+          </dl>
+        </article>
+        <article>
+          <label>REPAIR DIFF</label>
+          <pre id="diff" aria-live="polite">Loading captured patch…</pre>
+          <p class="muted">
+            The agent follows the explicit DataHub rename hint; no model call is
+            required for this bounded path.
+          </p>
+        </article>
+      </section>
+
+      <section class="grid">
+        <article>
+          <label>REGRESSION</label>
+          <div class="terminal">
+            <div>BEFORE <span class="bad">✕ no such column: customer_id</span></div>
+            <div>AFTER&nbsp; <span class="good">✓ Ran 1 test in 0.000s · OK</span></div>
+          </div>
+          <a
+            class="button"
+            href="evidence/20260716T091507467904Z/regression_test.py"
+          >Open regression test ↗</a>
+        </article>
+        <article>
+          <label>WRITE-BACK</label>
+          <p class="big">DataLineageFixVerified</p>
+          <p class="good">✓ mutation success · read-back verified</p>
+          <p class="mono">urn:li:tag:DataLineageFixVerified</p>
+          <a
+            class="button"
+            href="evidence/20260716T091507467904Z/writeback.json"
+          >Inspect captured trace ↗</a>
+        </article>
+      </section>
+
+      <section class="integrity">
+        <div>
+          <label>INTEGRITY</label>
+          <h2 id="status" aria-live="polite">Evidence manifest ready</h2>
+          <p>
+            SHA-256 hashes from the captured run are published for inspection.
+            Browser hash comparison — not a digital signature.
+          </p>
+        </div>
+        <button id="verify" type="button">Verify evidence files</button>
+      </section>
+
+      <footer>
+        <span>
+          Captured through the official DataHub MCP Server ·
+          mcp-server-datahub==0.6.0 · serverInfo 3.4.4
+        </span>
+        <a
+          href="https://github.com/Lukeknow0/data-lineage-fix-agent"
+          rel="noreferrer"
+        >Public source repository ↗</a>
+      </footer>
+    </main>
+  </body>
+</html>
