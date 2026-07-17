@@ -1,0 +1,6 @@
+test_customer_revenue_query_matches_datahub_schema (...) ... ERROR
+
+sqlite3.OperationalError: no such column: customer_id
+
+Ran 1 test
+FAILED (errors=1)

@@ -1,9 +1,15 @@
 .venv
 .venv314
+.git
+.DS_Store
+.env
+.env.*
+.tools
 .gocache
 .gomodcache
 .pytest_cache
 artifacts
+datahub-quickstart
 src
 tests
 fixture_pipeline

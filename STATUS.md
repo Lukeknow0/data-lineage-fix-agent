@@ -48,7 +48,7 @@ LIVE GATE: PASS
 
 ## Remaining pre-submission work
 
-1. Recheck official rules and get written payout/KYC clarification for mainland-China residence plus Hong Kong ZA Bank.
+1. Recheck official rules and obtain any needed eligibility or payout clarification.
 2. Preferably repeat the gate against a full DataHub v1.6.0 GMS; the first Docker attempt was blocked by external image-registry EOF errors.
 3. Decide whether to add a model-assisted proposal layer. It must remain optional and may not bypass the deterministic context/test guard.
 4. After approval, create the public Apache-2.0 repository and set the license in the repository About section.
@@ -60,7 +60,8 @@ LIVE GATE: PASS
 - Product-proof risk: low; the core loop is executable and repeatable.
 - DataHub-integration risk: low for the gate; medium until full-GMS video validation.
 - Judging-position risk: medium; deterministic safety is strong, but optional model-assisted planning may improve the “AI agent” story if added without weakening evidence.
-- Payout risk: medium; official bank transfer language is favorable, but processor/ZA Bank/mainland-China support is not guaranteed.
+- Payout risk: medium; payment processor, transfer rail, and location support are
+  not guaranteed by the published rules.
 - Publication risk: controlled; all consequential external actions remain blocked on confirmation.
 ## Public release authorization (2026-07-16)
 

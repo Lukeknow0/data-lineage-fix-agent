@@ -1,0 +1,12 @@
+--- a/pipeline/customer_revenue.sql
++++ b/pipeline/customer_revenue.sql
+@@ -1,6 +1,6 @@
+ SELECT
+-  customer_id,
++  customer_key,
+   SUM(total_amount) AS lifetime_value
+ FROM orders
+-GROUP BY customer_id
+-ORDER BY customer_id;
++GROUP BY customer_key
++ORDER BY customer_key;

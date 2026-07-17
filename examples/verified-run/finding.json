@@ -1,0 +1,11 @@
+{
+  "finding_id": "DLFA-SCHEMA-001",
+  "kind": "downstream-schema-drift",
+  "severity": "high",
+  "source_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+  "affected_entity_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.mart_customer_revenue,PROD)",
+  "repository_file": "pipeline/customer_revenue.sql",
+  "missing_field": "customer_id",
+  "replacement_field": "customer_key",
+  "reference_count": 3
+}
