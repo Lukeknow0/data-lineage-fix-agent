@@ -1,0 +1,69 @@
+{
+  "candidate": {
+    "model_id": "lineagetx-deterministic-reference-v1",
+    "proposal": {
+      "contract_columns": [
+        "customer_key",
+        "order_id",
+        "total_amount"
+      ],
+      "expanded_columns": [
+        "customer_id",
+        "customer_key",
+        "order_id",
+        "total_amount"
+      ],
+      "expected_occurrences": 2,
+      "expected_sha256": "bc1d2f4192185658fe78ff59edcf3b2c073ed5161d3b883d71a4f6b2f5529420",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "new_field": "customer_key",
+      "old_field": "customer_id",
+      "owner_urns": [
+        "urn:li:corpuser:identity-data-owner"
+      ],
+      "participant_id": "consumer-a5d3dd237f5aab8ff34c",
+      "relative_path": "semantic/customer_identity.json",
+      "repository": "analytics-governance",
+      "required_owner_urn": "urn:li:corpuser:identity-data-owner"
+    },
+    "proposal_type": "SemanticMappingProposal",
+    "rationale": [
+      "candidate_only",
+      "deterministic_policy_and_tests_must_authorize_application"
+    ]
+  },
+  "candidate_sha256": "745f4f5ee5bc33425b254041bbfd1b2819eac89ad4d3f79ae11b03417ff272f5",
+  "trusted_policy": {
+    "allowed_paths": [
+      "semantic/customer_identity.json"
+    ],
+    "asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)",
+    "assignment_name": null,
+    "config_key": null,
+    "contract_columns": [
+      "customer_key",
+      "order_id",
+      "total_amount"
+    ],
+    "dialect": null,
+    "expanded_columns": [
+      "customer_id",
+      "customer_key",
+      "order_id",
+      "total_amount"
+    ],
+    "intent_sha256": "7ba06b0789512486f0f92f3c630183f4be0dbb907b601823b5a1ee0a064237e9",
+    "kind": "SEMANTIC_APPROVAL",
+    "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+    "new_field": "customer_key",
+    "old_field": "customer_id",
+    "owner_urns": [
+      "urn:li:corpuser:identity-data-owner"
+    ],
+    "participant_id": "consumer-a5d3dd237f5aab8ff34c",
+    "relation": null,
+    "repository": "analytics-governance",
+    "source_asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+    "trusted_fixture_scope": true
+  }
+}

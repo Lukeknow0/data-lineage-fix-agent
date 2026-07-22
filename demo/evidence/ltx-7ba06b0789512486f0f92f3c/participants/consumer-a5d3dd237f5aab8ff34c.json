@@ -1,0 +1,26 @@
+{
+  "asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)",
+  "candidate_branch": "lineagetx/ltx-7ba06b0789512486f0f92f3c/consumer-a5d3dd237f5aab8ff34c",
+  "candidate_commit_sha": "3e715d15e31c0242be7e3e393c6bb243041fba60",
+  "changed_files": [
+    "semantic/customer_identity.json"
+  ],
+  "checks": [
+    "expected_sha256",
+    "exact_owner_identity",
+    "exact_mapping_approval",
+    "semantic_config_schema",
+    "path_allowlist",
+    "expanded_schema_mapping",
+    "contract_schema_mapping"
+  ],
+  "kind": "SEMANTIC_APPROVAL",
+  "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+  "owner_urns": [
+    "urn:li:corpuser:identity-data-owner"
+  ],
+  "participant_id": "consumer-a5d3dd237f5aab8ff34c",
+  "proposal_sha256": "745f4f5ee5bc33425b254041bbfd1b2819eac89ad4d3f79ae11b03417ff272f5",
+  "repository": "analytics-governance",
+  "unmerged": true
+}

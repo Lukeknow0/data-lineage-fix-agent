@@ -1,0 +1,241 @@
+{
+  "approvals": [],
+  "events": [
+    {
+      "created_at": "2026-07-17T01:02:03.000000Z",
+      "event_type": "MIGRATION_DETECTED",
+      "from_status": null,
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "participant_id": "",
+      "payload": {
+        "participant_ids": [
+          "consumer-06ca4e5e37c8c92962ee",
+          "consumer-64f6aa6861a156057c40",
+          "consumer-a5d3dd237f5aab8ff34c"
+        ]
+      },
+      "sequence": 1,
+      "to_status": "DETECTED",
+      "version": 0
+    },
+    {
+      "created_at": "2026-07-22T15:35:50.722168Z",
+      "event_type": "LINEAGETX_PREPARING",
+      "from_status": "DETECTED",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "participant_id": "",
+      "payload": {
+        "auto_merge": false,
+        "isolated_worktrees": true
+      },
+      "sequence": 2,
+      "to_status": "PREPARING",
+      "version": 1
+    },
+    {
+      "created_at": "2026-07-22T15:35:53.679272Z",
+      "event_type": "PARTICIPANT_PREPARING_IN_ISOLATED_WORKTREE",
+      "from_status": "DISCOVERED",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "participant_id": "consumer-06ca4e5e37c8c92962ee",
+      "payload": {
+        "repository": "data-platform"
+      },
+      "sequence": 3,
+      "to_status": "PREPARING",
+      "version": 1
+    },
+    {
+      "created_at": "2026-07-22T15:35:53.905928Z",
+      "event_type": "CANDIDATE_COMMITTED_AND_VERIFIED",
+      "from_status": "PREPARING",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "participant_id": "consumer-06ca4e5e37c8c92962ee",
+      "payload": {
+        "candidate_commit_sha": "e22e73b83938805d5dc93da26025ef62730b72a9",
+        "checks": [
+          "expected_sha256",
+          "sqlglot_ast",
+          "column_occurrence_count",
+          "path_allowlist",
+          "expanded_schema_compile",
+          "contract_schema_compile"
+        ],
+        "proposal_sha256": "0be5bd330714c03db67888a833251589be7c34d62019a3e0b3cb65aff6942add",
+        "unmerged": true
+      },
+      "sequence": 4,
+      "to_status": "VERIFIED",
+      "version": 2
+    },
+    {
+      "created_at": "2026-07-22T15:35:53.918352Z",
+      "event_type": "PARTICIPANT_PREPARING_IN_ISOLATED_WORKTREE",
+      "from_status": "DISCOVERED",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "participant_id": "consumer-64f6aa6861a156057c40",
+      "payload": {
+        "repository": "data-platform"
+      },
+      "sequence": 5,
+      "to_status": "PREPARING",
+      "version": 1
+    },
+    {
+      "created_at": "2026-07-22T15:35:54.130647Z",
+      "event_type": "CANDIDATE_COMMITTED_AND_VERIFIED",
+      "from_status": "PREPARING",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "participant_id": "consumer-64f6aa6861a156057c40",
+      "payload": {
+        "candidate_commit_sha": "ee86e7ad0139f70d2046d49189e542629b56118b",
+        "checks": [
+          "expected_sha256_both_files",
+          "python_ast_literal_mapping",
+          "json_config_schema",
+          "cross_file_consistency",
+          "deterministic_mapping_policy",
+          "path_allowlist",
+          "expanded_schema_mapping",
+          "contract_schema_mapping"
+        ],
+        "proposal_sha256": "3bd0b405fb148461dfc3b7b9cc79d42ed4d96d2bc3a31d930901e1bb58c12059",
+        "unmerged": true
+      },
+      "sequence": 6,
+      "to_status": "VERIFIED",
+      "version": 2
+    },
+    {
+      "created_at": "2026-07-22T15:35:54.142617Z",
+      "event_type": "PARTICIPANT_PREPARING_IN_ISOLATED_WORKTREE",
+      "from_status": "DISCOVERED",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "participant_id": "consumer-a5d3dd237f5aab8ff34c",
+      "payload": {
+        "repository": "analytics-governance"
+      },
+      "sequence": 7,
+      "to_status": "PREPARING",
+      "version": 1
+    },
+    {
+      "created_at": "2026-07-22T15:35:54.264124Z",
+      "event_type": "SEMANTIC_OWNER_APPROVAL_REQUIRED",
+      "from_status": "PREPARING",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "participant_id": "consumer-a5d3dd237f5aab8ff34c",
+      "payload": {
+        "required_owner_urn": "urn:li:corpuser:identity-data-owner",
+        "zero_write": true
+      },
+      "sequence": 8,
+      "to_status": "NEEDS_APPROVAL",
+      "version": 2
+    },
+    {
+      "created_at": "2026-07-22T15:35:54.265675Z",
+      "event_type": "MIGRATION_WAITING_FOR_OWNER",
+      "from_status": "PREPARING",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "participant_id": "",
+      "payload": {
+        "participant_ids": [
+          "consumer-a5d3dd237f5aab8ff34c"
+        ]
+      },
+      "sequence": 9,
+      "to_status": "NEEDS_APPROVAL",
+      "version": 2
+    }
+  ],
+  "migration": {
+    "created_at": "2026-07-17T01:02:03.000000Z",
+    "intent": {
+      "contract_schema_fingerprint": "8433baaa406fc6edc91810f691875167ba627ef933c6f3a5e2329cf6e44b631f",
+      "created_at": "2026-07-17T01:02:03.000000Z",
+      "intent_sha256": "7ba06b0789512486f0f92f3c630183f4be0dbb907b601823b5a1ee0a064237e9",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "new_field": "customer_key",
+      "old_field": "customer_id",
+      "producer_base_sha": "1111111111111111111111111111111111111111",
+      "producer_head_sha": "2222222222222222222222222222222222222222",
+      "producer_pr_number": 42,
+      "producer_pr_url": "https://github.com/acme/commerce-producer/pull/42",
+      "producer_repository": "acme/commerce-producer",
+      "rollout_phase": "CONTRACT",
+      "source_asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+    },
+    "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+    "status": "NEEDS_APPROVAL",
+    "updated_at": "2026-07-22T15:35:54.265675Z",
+    "version": 2
+  },
+  "participants": [
+    {
+      "asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)",
+      "base_sha": "17a800a397152094bd247203d3197183738f488d",
+      "candidate_commit_sha": "e22e73b83938805d5dc93da26025ef62730b72a9",
+      "created_at": "2026-07-17T01:02:03.000000Z",
+      "evidence_links": [
+        "https://datahub-agent-hackathon-2026.vercel.app/evidence/ltx-7ba06b0789512486f0f92f3c/participants/consumer-06ca4e5e37c8c92962ee.json"
+      ],
+      "files": [
+        "dbt/models/stg_orders.sql"
+      ],
+      "kind": "DBT_SQL",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "owner_urns": [
+        "urn:li:corpuser:analytics-engineering"
+      ],
+      "participant_id": "consumer-06ca4e5e37c8c92962ee",
+      "repository": "data-platform",
+      "status": "VERIFIED",
+      "updated_at": "2026-07-22T15:35:53.905928Z",
+      "version": 2
+    },
+    {
+      "asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)",
+      "base_sha": "17a800a397152094bd247203d3197183738f488d",
+      "candidate_commit_sha": "ee86e7ad0139f70d2046d49189e542629b56118b",
+      "created_at": "2026-07-17T01:02:03.000000Z",
+      "evidence_links": [
+        "https://datahub-agent-hackathon-2026.vercel.app/evidence/ltx-7ba06b0789512486f0f92f3c/participants/consumer-64f6aa6861a156057c40.json"
+      ],
+      "files": [
+        "airflow/dags/export_customers.py",
+        "airflow/config/export_columns.json"
+      ],
+      "kind": "AIRFLOW_MAPPING",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "owner_urns": [
+        "urn:li:corpuser:analytics-engineering"
+      ],
+      "participant_id": "consumer-64f6aa6861a156057c40",
+      "repository": "data-platform",
+      "status": "VERIFIED",
+      "updated_at": "2026-07-22T15:35:54.130647Z",
+      "version": 2
+    },
+    {
+      "asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)",
+      "base_sha": "7d6cdf3db54138b4ef1ac43b0bf422189303068a",
+      "candidate_commit_sha": "",
+      "created_at": "2026-07-17T01:02:03.000000Z",
+      "evidence_links": [],
+      "files": [
+        "semantic/customer_identity.json"
+      ],
+      "kind": "SEMANTIC_APPROVAL",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "owner_urns": [
+        "urn:li:corpuser:identity-data-owner"
+      ],
+      "participant_id": "consumer-a5d3dd237f5aab8ff34c",
+      "repository": "analytics-governance",
+      "status": "NEEDS_APPROVAL",
+      "updated_at": "2026-07-22T15:35:54.264124Z",
+      "version": 2
+    }
+  ]
+}

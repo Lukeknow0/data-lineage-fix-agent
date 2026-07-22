@@ -1,0 +1,635 @@
+{
+  "assets": {
+    "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)": {
+      "governance": {
+        "owner_urns": [
+          "urn:li:corpuser:analytics-engineering"
+        ],
+        "structured_properties": {
+          "io.lineagetx.evidenceUrl": [
+            "https://example.invalid/lineagetx/integration-receipt"
+          ],
+          "io.lineagetx.migrationId": [
+            "ltx-real-datahub-integration"
+          ],
+          "io.lineagetx.owner": [
+            "urn:li:corpuser:analytics-engineering"
+          ],
+          "io.lineagetx.status": [
+            "PREPARED"
+          ],
+          "urn:li:structuredProperty:io.lineagetx.evidenceUrl": [
+            "https://example.invalid/lineagetx/integration-receipt"
+          ],
+          "urn:li:structuredProperty:io.lineagetx.migrationId": [
+            "ltx-real-datahub-integration"
+          ],
+          "urn:li:structuredProperty:io.lineagetx.owner": [
+            "urn:li:corpuser:analytics-engineering"
+          ],
+          "urn:li:structuredProperty:io.lineagetx.status": [
+            "PREPARED"
+          ]
+        },
+        "tag_urns": [
+          "urn:li:tag:CriticalData",
+          "urn:li:tag:LineageTXMigration"
+        ]
+      },
+      "schema": [
+        {
+          "description": "Legacy customer key.",
+          "field_path": "customer_id",
+          "native_type": "BIGINT",
+          "nullable": false
+        },
+        {
+          "description": "Order identifier.",
+          "field_path": "order_id",
+          "native_type": "BIGINT",
+          "nullable": false
+        },
+        {
+          "description": "Order total.",
+          "field_path": "total_amount",
+          "native_type": "DECIMAL",
+          "nullable": false
+        }
+      ],
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)"
+    },
+    "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)": {
+      "governance": {
+        "owner_urns": [
+          "urn:li:corpuser:data-platform-oncall"
+        ],
+        "structured_properties": {
+          "io.lineagetx.evidenceUrl": [
+            "https://example.invalid/lineagetx/integration-receipt"
+          ],
+          "io.lineagetx.migrationId": [
+            "ltx-real-datahub-integration"
+          ],
+          "io.lineagetx.owner": [
+            "urn:li:corpuser:data-platform-oncall"
+          ],
+          "io.lineagetx.status": [
+            "PREPARED"
+          ],
+          "urn:li:structuredProperty:io.lineagetx.evidenceUrl": [
+            "https://example.invalid/lineagetx/integration-receipt"
+          ],
+          "urn:li:structuredProperty:io.lineagetx.migrationId": [
+            "ltx-real-datahub-integration"
+          ],
+          "urn:li:structuredProperty:io.lineagetx.owner": [
+            "urn:li:corpuser:data-platform-oncall"
+          ],
+          "urn:li:structuredProperty:io.lineagetx.status": [
+            "PREPARED"
+          ]
+        },
+        "tag_urns": [
+          "urn:li:tag:CriticalData",
+          "urn:li:tag:LineageTXMigration"
+        ]
+      },
+      "schema": [
+        {
+          "description": "Deprecated compatibility alias scheduled for removal.",
+          "field_path": "customer_id",
+          "native_type": "BIGINT",
+          "nullable": false
+        },
+        {
+          "description": "Canonical customer key replacing customer_id.",
+          "field_path": "customer_key",
+          "native_type": "BIGINT",
+          "nullable": false
+        },
+        {
+          "description": "Stable order identifier.",
+          "field_path": "order_id",
+          "native_type": "BIGINT",
+          "nullable": false
+        },
+        {
+          "description": "Order total.",
+          "field_path": "total_amount",
+          "native_type": "DECIMAL",
+          "nullable": false
+        }
+      ],
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+    },
+    "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)": {
+      "governance": {
+        "owner_urns": [
+          "urn:li:corpuser:analytics-engineering"
+        ],
+        "structured_properties": {
+          "io.lineagetx.evidenceUrl": [
+            "https://example.invalid/lineagetx/integration-receipt"
+          ],
+          "io.lineagetx.migrationId": [
+            "ltx-real-datahub-integration"
+          ],
+          "io.lineagetx.owner": [
+            "urn:li:corpuser:analytics-engineering"
+          ],
+          "io.lineagetx.status": [
+            "PREPARED"
+          ],
+          "urn:li:structuredProperty:io.lineagetx.evidenceUrl": [
+            "https://example.invalid/lineagetx/integration-receipt"
+          ],
+          "urn:li:structuredProperty:io.lineagetx.migrationId": [
+            "ltx-real-datahub-integration"
+          ],
+          "urn:li:structuredProperty:io.lineagetx.owner": [
+            "urn:li:corpuser:analytics-engineering"
+          ],
+          "urn:li:structuredProperty:io.lineagetx.status": [
+            "PREPARED"
+          ]
+        },
+        "tag_urns": [
+          "urn:li:tag:CriticalData",
+          "urn:li:tag:LineageTXMigration"
+        ]
+      },
+      "schema": [
+        {
+          "description": "Exported customer key.",
+          "field_path": "customer_id",
+          "native_type": "BIGINT",
+          "nullable": false
+        },
+        {
+          "description": "Export timestamp.",
+          "field_path": "exported_at",
+          "native_type": "TIMESTAMP",
+          "nullable": false
+        }
+      ],
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)"
+    },
+    "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)": {
+      "governance": {
+        "owner_urns": [
+          "urn:li:corpuser:identity-data-owner"
+        ],
+        "structured_properties": {
+          "io.lineagetx.evidenceUrl": [
+            "https://example.invalid/lineagetx/integration-receipt"
+          ],
+          "io.lineagetx.migrationId": [
+            "ltx-real-datahub-integration"
+          ],
+          "io.lineagetx.owner": [
+            "urn:li:corpuser:identity-data-owner"
+          ],
+          "io.lineagetx.status": [
+            "PREPARED"
+          ],
+          "urn:li:structuredProperty:io.lineagetx.evidenceUrl": [
+            "https://example.invalid/lineagetx/integration-receipt"
+          ],
+          "urn:li:structuredProperty:io.lineagetx.migrationId": [
+            "ltx-real-datahub-integration"
+          ],
+          "urn:li:structuredProperty:io.lineagetx.owner": [
+            "urn:li:corpuser:identity-data-owner"
+          ],
+          "urn:li:structuredProperty:io.lineagetx.status": [
+            "PREPARED"
+          ]
+        },
+        "tag_urns": [
+          "urn:li:tag:CriticalData",
+          "urn:li:tag:LineageTXMigration",
+          "urn:li:tag:SemanticReviewRequired"
+        ]
+      },
+      "schema": [
+        {
+          "description": "Business identity key; mapping cannot be inferred safely.",
+          "field_path": "customer_id",
+          "native_type": "BIGINT",
+          "nullable": false
+        },
+        {
+          "description": "Identity confidence tier.",
+          "field_path": "identity_tier",
+          "native_type": "VARCHAR",
+          "nullable": false
+        }
+      ],
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)"
+    }
+  },
+  "consumers": [
+    {
+      "columns": [
+        "customer_id"
+      ],
+      "degree": "1",
+      "path_evidence": [
+        {
+          "metadata": {
+            "direction": "downstream",
+            "fields": {
+              "paths": {
+                "description": "Array of lineage paths showing transformation chains from source to target",
+                "structure": "Each path contains alternating entities (SCHEMA_FIELD or DATASET) and optional transformation QUERY entities"
+              }
+            },
+            "pathType": "column-level",
+            "queryType": "lineage-path-trace"
+          },
+          "pathCount": 1,
+          "paths": [
+            {
+              "path": [
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD),customer_id)"
+                },
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD),customer_id)"
+                }
+              ]
+            }
+          ],
+          "source": {
+            "column": "customer_id",
+            "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+          },
+          "target": {
+            "column": "customer_id",
+            "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)"
+          }
+        }
+      ],
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)"
+    },
+    {
+      "columns": [
+        "customer_id"
+      ],
+      "degree": "2",
+      "path_evidence": [
+        {
+          "metadata": {
+            "direction": "downstream",
+            "fields": {
+              "paths": {
+                "description": "Array of lineage paths showing transformation chains from source to target",
+                "structure": "Each path contains alternating entities (SCHEMA_FIELD or DATASET) and optional transformation QUERY entities"
+              }
+            },
+            "pathType": "column-level",
+            "queryType": "lineage-path-trace"
+          },
+          "pathCount": 1,
+          "paths": [
+            {
+              "path": [
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD),customer_id)"
+                },
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD),customer_id)"
+                },
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD),customer_id)"
+                }
+              ]
+            }
+          ],
+          "source": {
+            "column": "customer_id",
+            "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+          },
+          "target": {
+            "column": "customer_id",
+            "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)"
+          }
+        }
+      ],
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)"
+    },
+    {
+      "columns": [
+        "customer_id"
+      ],
+      "degree": "3+",
+      "path_evidence": [
+        {
+          "metadata": {
+            "direction": "downstream",
+            "fields": {
+              "paths": {
+                "description": "Array of lineage paths showing transformation chains from source to target",
+                "structure": "Each path contains alternating entities (SCHEMA_FIELD or DATASET) and optional transformation QUERY entities"
+              }
+            },
+            "pathType": "column-level",
+            "queryType": "lineage-path-trace"
+          },
+          "pathCount": 1,
+          "paths": [
+            {
+              "path": [
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD),customer_id)"
+                },
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD),customer_id)"
+                },
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD),customer_id)"
+                },
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD),customer_id)"
+                }
+              ]
+            }
+          ],
+          "source": {
+            "column": "customer_id",
+            "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+          },
+          "target": {
+            "column": "customer_id",
+            "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)"
+          }
+        }
+      ],
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)"
+    }
+  ],
+  "discovery_complete": true,
+  "impact_fingerprint": "1666e1a665e5a281d0dfe5d2744095c06e5643e8af8e4e5544fb7f42cc48cbb5",
+  "replacement_column": "customer_key",
+  "source": {
+    "governance": {
+      "owner_urns": [
+        "urn:li:corpuser:data-platform-oncall"
+      ],
+      "structured_properties": {
+        "io.lineagetx.evidenceUrl": [
+          "https://example.invalid/lineagetx/integration-receipt"
+        ],
+        "io.lineagetx.migrationId": [
+          "ltx-real-datahub-integration"
+        ],
+        "io.lineagetx.owner": [
+          "urn:li:corpuser:data-platform-oncall"
+        ],
+        "io.lineagetx.status": [
+          "PREPARED"
+        ],
+        "urn:li:structuredProperty:io.lineagetx.evidenceUrl": [
+          "https://example.invalid/lineagetx/integration-receipt"
+        ],
+        "urn:li:structuredProperty:io.lineagetx.migrationId": [
+          "ltx-real-datahub-integration"
+        ],
+        "urn:li:structuredProperty:io.lineagetx.owner": [
+          "urn:li:corpuser:data-platform-oncall"
+        ],
+        "urn:li:structuredProperty:io.lineagetx.status": [
+          "PREPARED"
+        ]
+      },
+      "tag_urns": [
+        "urn:li:tag:CriticalData",
+        "urn:li:tag:LineageTXMigration"
+      ]
+    },
+    "schema": [
+      {
+        "description": "Deprecated compatibility alias scheduled for removal.",
+        "field_path": "customer_id",
+        "native_type": "BIGINT",
+        "nullable": false
+      },
+      {
+        "description": "Canonical customer key replacing customer_id.",
+        "field_path": "customer_key",
+        "native_type": "BIGINT",
+        "nullable": false
+      },
+      {
+        "description": "Stable order identifier.",
+        "field_path": "order_id",
+        "native_type": "BIGINT",
+        "nullable": false
+      },
+      {
+        "description": "Order total.",
+        "field_path": "total_amount",
+        "native_type": "DECIMAL",
+        "nullable": false
+      }
+    ],
+    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+  },
+  "source_column": "customer_id",
+  "source_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+  "tool_traces": [
+    {
+      "arguments": {
+        "limit": 100,
+        "offset": 0,
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+      },
+      "mcp_server": {
+        "name": "datahub",
+        "package": "mcp-server-datahub==0.6.0",
+        "version": "3.4.4"
+      },
+      "tool": "list_schema_fields",
+      "transport": "datahub-oss+official-mcp-server-datahub==0.6.0"
+    },
+    {
+      "arguments": {
+        "column": "customer_id",
+        "max_hops": 3,
+        "max_results": 100,
+        "offset": 0,
+        "upstream": false,
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+      },
+      "mcp_server": {
+        "name": "datahub",
+        "package": "mcp-server-datahub==0.6.0",
+        "version": "3.4.4"
+      },
+      "tool": "get_lineage",
+      "transport": "datahub-oss+official-mcp-server-datahub==0.6.0"
+    },
+    {
+      "arguments": {
+        "urns": [
+          "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+          "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)",
+          "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)",
+          "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)"
+        ]
+      },
+      "mcp_server": {
+        "name": "datahub",
+        "package": "mcp-server-datahub==0.6.0",
+        "version": "3.4.4"
+      },
+      "tool": "get_entities",
+      "transport": "datahub-oss+official-mcp-server-datahub==0.6.0"
+    },
+    {
+      "arguments": {
+        "limit": 100,
+        "offset": 0,
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)"
+      },
+      "mcp_server": {
+        "name": "datahub",
+        "package": "mcp-server-datahub==0.6.0",
+        "version": "3.4.4"
+      },
+      "tool": "list_schema_fields",
+      "transport": "datahub-oss+official-mcp-server-datahub==0.6.0"
+    },
+    {
+      "arguments": {
+        "limit": 100,
+        "offset": 0,
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)"
+      },
+      "mcp_server": {
+        "name": "datahub",
+        "package": "mcp-server-datahub==0.6.0",
+        "version": "3.4.4"
+      },
+      "tool": "list_schema_fields",
+      "transport": "datahub-oss+official-mcp-server-datahub==0.6.0"
+    },
+    {
+      "arguments": {
+        "limit": 100,
+        "offset": 0,
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)"
+      },
+      "mcp_server": {
+        "name": "datahub",
+        "package": "mcp-server-datahub==0.6.0",
+        "version": "3.4.4"
+      },
+      "tool": "list_schema_fields",
+      "transport": "datahub-oss+official-mcp-server-datahub==0.6.0"
+    },
+    {
+      "arguments": {
+        "direction": "downstream",
+        "source_column": "customer_id",
+        "source_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+        "target_column": "customer_id",
+        "target_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)"
+      },
+      "mcp_server": {
+        "name": "datahub",
+        "package": "mcp-server-datahub==0.6.0",
+        "version": "3.4.4"
+      },
+      "tool": "get_lineage_paths_between",
+      "transport": "datahub-oss+official-mcp-server-datahub==0.6.0"
+    },
+    {
+      "arguments": {
+        "direction": "downstream",
+        "source_column": "customer_id",
+        "source_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+        "target_column": "customer_id",
+        "target_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)"
+      },
+      "mcp_server": {
+        "name": "datahub",
+        "package": "mcp-server-datahub==0.6.0",
+        "version": "3.4.4"
+      },
+      "tool": "get_lineage_paths_between",
+      "transport": "datahub-oss+official-mcp-server-datahub==0.6.0"
+    },
+    {
+      "arguments": {
+        "direction": "downstream",
+        "source_column": "customer_id",
+        "source_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+        "target_column": "customer_id",
+        "target_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)"
+      },
+      "mcp_server": {
+        "name": "datahub",
+        "package": "mcp-server-datahub==0.6.0",
+        "version": "3.4.4"
+      },
+      "tool": "get_lineage_paths_between",
+      "transport": "datahub-oss+official-mcp-server-datahub==0.6.0"
+    }
+  ],
+  "transport": "datahub-oss+official-mcp-server-datahub==0.6.0"
+}

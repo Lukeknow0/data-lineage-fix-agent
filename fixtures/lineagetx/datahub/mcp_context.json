@@ -1,0 +1,35 @@
+{
+  "transport": "offline-fixture-for-official-datahub-mcp-shape",
+  "platform": "postgres",
+  "source": {
+    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+    "schema": ["order_id", "customer_id", "customer_key", "total_amount"],
+    "owners": ["urn:li:corpuser:data-platform-oncall"],
+    "governance": {
+      "tags": ["urn:li:tag:CriticalData"]
+    }
+  },
+  "column_lineage": [
+    {
+      "hop": 1,
+      "upstream": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD),customer_id)",
+      "downstream": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD),customer_id)",
+      "participant_id": "consumer-06ca4e5e37c8c92962ee",
+      "owners": ["urn:li:corpuser:analytics-engineering"]
+    },
+    {
+      "hop": 2,
+      "upstream": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD),customer_id)",
+      "downstream": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD),customer_id)",
+      "participant_id": "consumer-64f6aa6861a156057c40",
+      "owners": ["urn:li:corpuser:analytics-engineering"]
+    },
+    {
+      "hop": 3,
+      "upstream": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD),customer_id)",
+      "downstream": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD),customer_id)",
+      "participant_id": "consumer-a5d3dd237f5aab8ff34c",
+      "owners": ["urn:li:corpuser:identity-data-owner"]
+    }
+  ]
+}

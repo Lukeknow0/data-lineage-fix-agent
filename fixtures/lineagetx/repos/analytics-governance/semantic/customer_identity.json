@@ -1,0 +1,11 @@
+{
+  "dimensions": {
+    "customer_id": {
+      "description": "Canonical customer identity; replacement semantics require owner approval.",
+      "semantic_type": "customer_identity",
+      "source_field": "customer_id"
+    }
+  },
+  "model": "customer_identity",
+  "owner": "urn:li:corpuser:identity-data-owner"
+}

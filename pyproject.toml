@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "datalineage-fix-agent"
-version = "0.1.0"
-description = "A DataHub-grounded agent that fixes downstream schema drift and proves the repair."
+version = "0.2.0"
+description = "LineageTX: a two-phase-commit-inspired safety gate for schema changes across the data graph."
 readme = "README.md"
 requires-python = ">=3.11,<3.12"
 license = { text = "Apache-2.0" }

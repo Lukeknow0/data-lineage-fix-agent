@@ -1,0 +1,28 @@
+{
+  "asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)",
+  "candidate_branch": "lineagetx/ltx-7ba06b0789512486f0f92f3c/consumer-64f6aa6861a156057c40",
+  "candidate_commit_sha": "ee86e7ad0139f70d2046d49189e542629b56118b",
+  "changed_files": [
+    "airflow/config/export_columns.json",
+    "airflow/dags/export_customers.py"
+  ],
+  "checks": [
+    "expected_sha256_both_files",
+    "python_ast_literal_mapping",
+    "json_config_schema",
+    "cross_file_consistency",
+    "deterministic_mapping_policy",
+    "path_allowlist",
+    "expanded_schema_mapping",
+    "contract_schema_mapping"
+  ],
+  "kind": "AIRFLOW_MAPPING",
+  "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+  "owner_urns": [
+    "urn:li:corpuser:analytics-engineering"
+  ],
+  "participant_id": "consumer-64f6aa6861a156057c40",
+  "proposal_sha256": "3bd0b405fb148461dfc3b7b9cc79d42ed4d96d2bc3a31d930901e1bb58c12059",
+  "repository": "data-platform",
+  "unmerged": true
+}

@@ -1,0 +1,50 @@
+{
+  "auto_merge": false,
+  "receipts": [
+    {
+      "commit_sha": "e22e73b83938805d5dc93da26025ef62730b72a9",
+      "evidence_url": "",
+      "kind": "CANDIDATE_COMMIT",
+      "merged": false,
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "recorded_at": "2026-07-22T15:36:10.651891Z",
+      "reference": "refs/heads/lineagetx/ltx-7ba06b0789512486f0f92f3c/consumer-06ca4e5e37c8c92962ee"
+    },
+    {
+      "commit_sha": "ee86e7ad0139f70d2046d49189e542629b56118b",
+      "evidence_url": "",
+      "kind": "CANDIDATE_COMMIT",
+      "merged": false,
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "recorded_at": "2026-07-22T15:36:10.651891Z",
+      "reference": "refs/heads/lineagetx/ltx-7ba06b0789512486f0f92f3c/consumer-64f6aa6861a156057c40"
+    },
+    {
+      "commit_sha": "3e715d15e31c0242be7e3e393c6bb243041fba60",
+      "evidence_url": "",
+      "kind": "CANDIDATE_COMMIT",
+      "merged": false,
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "recorded_at": "2026-07-22T15:36:10.651891Z",
+      "reference": "refs/heads/lineagetx/ltx-7ba06b0789512486f0f92f3c/consumer-a5d3dd237f5aab8ff34c"
+    },
+    {
+      "commit_sha": "",
+      "evidence_url": "https://replay.lineagetx.invalid/ltx-7ba06b0789512486f0f92f3c/publication.json",
+      "kind": "COORDINATED_PR",
+      "merged": false,
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "recorded_at": "2026-07-22T15:36:10.651891Z",
+      "reference": "https://replay.lineagetx.invalid/ltx-7ba06b0789512486f0f92f3c/coordinated-pr"
+    },
+    {
+      "commit_sha": "",
+      "evidence_url": "https://replay.lineagetx.invalid/ltx-7ba06b0789512486f0f92f3c/coordinated-pr",
+      "kind": "PRODUCER_GATE_RELEASED",
+      "merged": false,
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "recorded_at": "2026-07-22T15:36:10.655892Z",
+      "reference": "check-run:lineagetx/safe-to-contract:2222222222222222222222222222222222222222"
+    }
+  ]
+}

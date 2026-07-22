@@ -1,0 +1,107 @@
+{
+  "approvals": [],
+  "events": [
+    {
+      "created_at": "2026-07-17T01:02:03.000000Z",
+      "event_type": "MIGRATION_DETECTED",
+      "from_status": null,
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "participant_id": "",
+      "payload": {
+        "participant_ids": [
+          "consumer-06ca4e5e37c8c92962ee",
+          "consumer-64f6aa6861a156057c40",
+          "consumer-a5d3dd237f5aab8ff34c"
+        ]
+      },
+      "sequence": 1,
+      "to_status": "DETECTED",
+      "version": 0
+    }
+  ],
+  "migration": {
+    "created_at": "2026-07-17T01:02:03.000000Z",
+    "intent": {
+      "contract_schema_fingerprint": "8433baaa406fc6edc91810f691875167ba627ef933c6f3a5e2329cf6e44b631f",
+      "created_at": "2026-07-17T01:02:03.000000Z",
+      "intent_sha256": "7ba06b0789512486f0f92f3c630183f4be0dbb907b601823b5a1ee0a064237e9",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "new_field": "customer_key",
+      "old_field": "customer_id",
+      "producer_base_sha": "1111111111111111111111111111111111111111",
+      "producer_head_sha": "2222222222222222222222222222222222222222",
+      "producer_pr_number": 42,
+      "producer_pr_url": "https://github.com/acme/commerce-producer/pull/42",
+      "producer_repository": "acme/commerce-producer",
+      "rollout_phase": "CONTRACT",
+      "source_asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+    },
+    "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+    "status": "DETECTED",
+    "updated_at": "2026-07-17T01:02:03.000000Z",
+    "version": 0
+  },
+  "participants": [
+    {
+      "asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)",
+      "base_sha": "17a800a397152094bd247203d3197183738f488d",
+      "candidate_commit_sha": "",
+      "created_at": "2026-07-17T01:02:03.000000Z",
+      "evidence_links": [],
+      "files": [
+        "dbt/models/stg_orders.sql"
+      ],
+      "kind": "DBT_SQL",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "owner_urns": [
+        "urn:li:corpuser:analytics-engineering"
+      ],
+      "participant_id": "consumer-06ca4e5e37c8c92962ee",
+      "repository": "data-platform",
+      "status": "DISCOVERED",
+      "updated_at": "2026-07-17T01:02:03.000000Z",
+      "version": 0
+    },
+    {
+      "asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)",
+      "base_sha": "17a800a397152094bd247203d3197183738f488d",
+      "candidate_commit_sha": "",
+      "created_at": "2026-07-17T01:02:03.000000Z",
+      "evidence_links": [],
+      "files": [
+        "airflow/dags/export_customers.py",
+        "airflow/config/export_columns.json"
+      ],
+      "kind": "AIRFLOW_MAPPING",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "owner_urns": [
+        "urn:li:corpuser:analytics-engineering"
+      ],
+      "participant_id": "consumer-64f6aa6861a156057c40",
+      "repository": "data-platform",
+      "status": "DISCOVERED",
+      "updated_at": "2026-07-17T01:02:03.000000Z",
+      "version": 0
+    },
+    {
+      "asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)",
+      "base_sha": "7d6cdf3db54138b4ef1ac43b0bf422189303068a",
+      "candidate_commit_sha": "",
+      "created_at": "2026-07-17T01:02:03.000000Z",
+      "evidence_links": [],
+      "files": [
+        "semantic/customer_identity.json"
+      ],
+      "kind": "SEMANTIC_APPROVAL",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "owner_urns": [
+        "urn:li:corpuser:identity-data-owner"
+      ],
+      "participant_id": "consumer-a5d3dd237f5aab8ff34c",
+      "repository": "analytics-governance",
+      "status": "DISCOVERED",
+      "updated_at": "2026-07-17T01:02:03.000000Z",
+      "version": 0
+    }
+  ]
+}
