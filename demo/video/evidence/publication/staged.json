@@ -1,0 +1,42 @@
+{
+  "candidate_cleanup_permitted": false,
+  "candidate_receipts": [
+    {
+      "commit_sha": "313cac4148ffdcb10b2aec740bf95ba3b6b3cfa4",
+      "evidence_url": "",
+      "kind": "CANDIDATE_COMMIT",
+      "merged": false,
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "recorded_at": "2026-07-23T17:45:45.844386Z",
+      "reference": "refs/heads/lineagetx/ltx-7ba06b0789512486f0f92f3c/consumer-06ca4e5e37c8c92962ee"
+    },
+    {
+      "commit_sha": "0b81f3e990e8f05cda48638c4bff5ea4e08e4fde",
+      "evidence_url": "",
+      "kind": "CANDIDATE_COMMIT",
+      "merged": false,
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "recorded_at": "2026-07-23T17:45:45.844386Z",
+      "reference": "refs/heads/lineagetx/ltx-7ba06b0789512486f0f92f3c/consumer-64f6aa6861a156057c40"
+    },
+    {
+      "commit_sha": "fa3730d5c77abc3d0b2d686446b238af2e2e5dca",
+      "evidence_url": "",
+      "kind": "CANDIDATE_COMMIT",
+      "merged": false,
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "recorded_at": "2026-07-23T17:45:45.844386Z",
+      "reference": "refs/heads/lineagetx/ltx-7ba06b0789512486f0f92f3c/consumer-a5d3dd237f5aab8ff34c"
+    }
+  ],
+  "coordinated_pr": {
+    "commit_sha": "",
+    "evidence_url": "https://replay.lineagetx.invalid/ltx-7ba06b0789512486f0f92f3c/publication.json",
+    "kind": "COORDINATED_PR",
+    "merged": false,
+    "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+    "recorded_at": "2026-07-23T17:45:45.844386Z",
+    "reference": "https://replay.lineagetx.invalid/ltx-7ba06b0789512486f0f92f3c/coordinated-pr"
+  },
+  "recovery": "reconcile_publication"
+}

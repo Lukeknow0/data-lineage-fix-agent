@@ -1,0 +1,24 @@
+{
+  "base_checkout_unchanged": true,
+  "candidate_branch": "lineagetx/ltx-7ba06b0789512486f0f92f3c/consumer-a5d3dd237f5aab8ff34c",
+  "result": {
+    "changed_files": [],
+    "checks": [
+      "expected_sha256",
+      "ambiguous_semantic_mapping",
+      "owner_required",
+      "zero_write_before_approval"
+    ],
+    "evidence": {
+      "current_sha256": "bc1d2f4192185658fe78ff59edcf3b2c073ed5161d3b883d71a4f6b2f5529420",
+      "requested_mapping": {
+        "new_field": "customer_key",
+        "old_field": "customer_id"
+      }
+    },
+    "participant_id": "consumer-a5d3dd237f5aab8ff34c",
+    "required_owner_urn": "urn:li:corpuser:identity-data-owner",
+    "state": "NEEDS_APPROVAL"
+  },
+  "worktree_scope": "isolated-lineagetx-candidate"
+}

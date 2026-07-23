@@ -230,17 +230,21 @@ and a server-side token.
   manifests.
 - **Live evidence run:** real DataHub OSS v1.6.0 plus official MCP discovery,
   pre-commit refresh, write-back, and read-back. The captured evidence bundle
-  is published; the video is still pending.
+  and the recorded rerun video are published.
 
 Public deployment:
 [datahub-agent-hackathon-2026.vercel.app](https://datahub-agent-hackathon-2026.vercel.app/).
 The page is a deterministic replay, not a browser-to-DataHub control plane.
+The 2:56 demonstration is available as
+[`demo/video/lineagetx-demo.mp4`](demo/video/lineagetx-demo.mp4), with the
+recorded rerun evidence manifest at
+[`demo/video/evidence/manifest.json`](demo/video/evidence/manifest.json).
 
 The public page currently discloses:
 
 > Verified interactive replay. The browser runs deterministic playback, is not
 > connected to DataHub or GitHub, and performs no external mutation. The linked
-> bundle records the DataHub OSS live run; the video is pending.
+> bundles and video record verified DataHub OSS live runs.
 
 The live path is evidenced separately from the browser replay. Its manifest is
 [`demo/evidence/ltx-7ba06b0789512486f0f92f3c/manifest.json`](demo/evidence/ltx-7ba06b0789512486f0f92f3c/manifest.json).

@@ -198,7 +198,7 @@ Place this language above the fold and in the video description:
 
 > Verified interactive replay. The browser runs deterministic playback, is not
 > connected to DataHub or GitHub, and performs no external mutation. The linked
-> bundle records the DataHub OSS live run; the video is pending.
+> bundles and video record verified DataHub OSS live runs.
 
-The public page links the live evidence manifest. Add the video link only after
-the final recording has been watched and published.
+The public page links the live evidence manifest and the watched, published
+2:56 demonstration video.
