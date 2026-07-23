@@ -1,0 +1,70 @@
+{
+  "candidate": {
+    "model_id": "lineagetx-deterministic-reference-v1",
+    "proposal": {
+      "contract_columns": [
+        "customer_key",
+        "order_id",
+        "total_amount"
+      ],
+      "dialect": "duckdb",
+      "expanded_columns": [
+        "customer_id",
+        "customer_key",
+        "order_id",
+        "total_amount"
+      ],
+      "expected_occurrences": 1,
+      "expected_sha256": "27dd91aa2f2e605c9dba5306a919c5d33eb6612392e80c6dbd6bc1817bb63be3",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "new_field": "customer_key",
+      "old_field": "customer_id",
+      "owner_urns": [
+        "urn:li:corpuser:analytics-engineering"
+      ],
+      "participant_id": "consumer-06ca4e5e37c8c92962ee",
+      "relation": "raw_orders",
+      "relative_path": "dbt/models/stg_orders.sql",
+      "repository": "data-platform"
+    },
+    "proposal_type": "DbtSqlProposal",
+    "rationale": [
+      "candidate_only",
+      "deterministic_policy_and_tests_must_authorize_application"
+    ]
+  },
+  "candidate_sha256": "0be5bd330714c03db67888a833251589be7c34d62019a3e0b3cb65aff6942add",
+  "trusted_policy": {
+    "allowed_paths": [
+      "dbt/models/stg_orders.sql"
+    ],
+    "asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)",
+    "assignment_name": null,
+    "config_key": null,
+    "contract_columns": [
+      "customer_key",
+      "order_id",
+      "total_amount"
+    ],
+    "dialect": "duckdb",
+    "expanded_columns": [
+      "customer_id",
+      "customer_key",
+      "order_id",
+      "total_amount"
+    ],
+    "intent_sha256": "7ba06b0789512486f0f92f3c630183f4be0dbb907b601823b5a1ee0a064237e9",
+    "kind": "DBT_SQL",
+    "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+    "new_field": "customer_key",
+    "old_field": "customer_id",
+    "owner_urns": [
+      "urn:li:corpuser:analytics-engineering"
+    ],
+    "participant_id": "consumer-06ca4e5e37c8c92962ee",
+    "relation": "raw_orders",
+    "repository": "data-platform",
+    "source_asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+    "trusted_fixture_scope": true
+  }
+}

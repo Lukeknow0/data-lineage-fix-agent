@@ -1,0 +1,12 @@
+{
+  "asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+  "dataset": "ecommerce.raw.orders",
+  "phase": "EXPANDED",
+  "platform": "postgres",
+  "fields": [
+    {"name": "order_id", "type": "BIGINT", "nullable": false},
+    {"name": "customer_id", "type": "BIGINT", "nullable": false, "deprecated": true},
+    {"name": "customer_key", "type": "BIGINT", "nullable": false},
+    {"name": "total_amount", "type": "DOUBLE", "nullable": false}
+  ]
+}

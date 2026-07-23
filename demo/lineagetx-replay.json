@@ -1,0 +1,151 @@
+{
+  "mode": "interactive-synthetic-replay",
+  "disclosure": "This is a verified interactive replay of a captured live run. The browser remains deterministic and is not connected to DataHub or GitHub; the DataHub OSS evidence is published and the video is pending.",
+  "liveVerified": true,
+  "migration": {
+    "id": "ltx-7ba06b0789512486f0f92f3c",
+    "changeIntent": "customer_id -> customer_key",
+    "producerAsset": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+    "producerPullRequest": 42,
+    "states": [
+      "DETECTED",
+      "PREPARING",
+      "NEEDS_APPROVAL",
+      "PREPARED",
+      "COMMITTED",
+      "ABORTED"
+    ]
+  },
+  "datahubContext": {
+    "transport": "offline replay of the official DataHub MCP response shape",
+    "lineageLevel": "column",
+    "maximumHops": 3,
+    "repositories": 2,
+    "owners": 3,
+    "governanceSignals": [
+      "schema",
+      "owner",
+      "tag"
+    ],
+    "writeback": [
+      "Structured Properties",
+      "Tag"
+    ]
+  },
+  "consumers": [
+    {
+      "id": "dbt",
+      "hop": 1,
+      "label": "dbt SQL candidate",
+      "asset": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)",
+      "repository": "data-platform",
+      "owner": "Analytics Engineering",
+      "files": [
+        "dbt/models/stg_orders.sql"
+      ],
+      "policy": "automatic",
+      "validators": [
+        "SQLGlot AST",
+        "expanded-schema test",
+        "contract-schema test"
+      ]
+    },
+    {
+      "id": "airflow",
+      "hop": 2,
+      "label": "Airflow field mapping",
+      "asset": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)",
+      "repository": "data-platform",
+      "owner": "Analytics Engineering",
+      "files": [
+        "airflow/dags/export_customers.py",
+        "airflow/config/export_columns.json"
+      ],
+      "policy": "automatic-two-file",
+      "validators": [
+        "Python AST",
+        "configuration schema",
+        "cross-file consistency"
+      ]
+    },
+    {
+      "id": "semantic",
+      "hop": "3+",
+      "label": "Customer identity export",
+      "asset": "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)",
+      "repository": "analytics-governance",
+      "owner": "Identity Data Owner",
+      "files": [
+        "semantic/customer_identity.json"
+      ],
+      "policy": "owner-approval-required",
+      "writesBeforeApproval": 0,
+      "ambiguity": "customer_id may represent an external account identifier"
+    }
+  ],
+  "timing": {
+    "detectedToPreparing": 380,
+    "dbtVerified": 930,
+    "airflowFirstFile": 1420,
+    "airflowVerified": 1910,
+    "approvalRequired": 2380,
+    "ownerApprovedToPrepared": 520,
+    "preparedToCommitted": 1080
+  },
+  "semantics": {
+    "twoPhaseCommitInspired": true,
+    "databaseAtomicityClaimed": false,
+    "automaticMerge": false,
+    "abortScope": "LineageTX-owned unmerged candidate branches and worktrees only",
+    "committedMeaning": "candidate commits and coordination PR are ready; producer gate is safe to merge"
+  },
+  "preservedBaseline": {
+    "runId": "20260716T091507467904Z",
+    "manifest": "evidence/20260716T091507467904Z/manifest.json",
+    "entryCount": 8
+  },
+  "replayIntegrity": {
+    "manifest": "lineagetx-replay.manifest.json",
+    "entryCount": 1,
+    "scope": "The manifest authenticates bytes only by comparison with the same public origin; it is not a digital signature."
+  },
+  "liveEvidence": {
+    "status": "published",
+    "manifestPath": "evidence/ltx-7ba06b0789512486f0f92f3c/manifest.json",
+    "expectedMigrationId": "ltx-7ba06b0789512486f0f92f3c",
+    "expectedFiles": [
+      "approval/github-precommit-revalidation.json",
+      "approval/github-verification.json",
+      "approval/owner-receipt.json",
+      "context/datahub.json",
+      "context/discovery-decision.json",
+      "diffs/consumer-06ca4e5e37c8c92962ee.patch",
+      "diffs/consumer-64f6aa6861a156057c40.patch",
+      "diffs/consumer-a5d3dd237f5aab8ff34c.patch",
+      "participants/consumer-06ca4e5e37c8c92962ee.json",
+      "participants/consumer-64f6aa6861a156057c40.json",
+      "participants/consumer-a5d3dd237f5aab8ff34c.json",
+      "proposals/consumer-06ca4e5e37c8c92962ee.json",
+      "proposals/consumer-64f6aa6861a156057c40.json",
+      "proposals/consumer-a5d3dd237f5aab8ff34c.json",
+      "publication.json",
+      "publication/receipts.json",
+      "publication/staged.json",
+      "state/01-detected.json",
+      "state/03-needs-approval.json",
+      "state/04-prepared.json",
+      "state/05-committed.json",
+      "verification/consumer-06ca4e5e37c8c92962ee-initial.json",
+      "verification/consumer-64f6aa6861a156057c40-initial.json",
+      "verification/consumer-a5d3dd237f5aab8ff34c-approved.json",
+      "verification/consumer-a5d3dd237f5aab8ff34c-initial.json",
+      "writeback/committed.json",
+      "writeback/detected.json",
+      "writeback/needs_approval.json",
+      "writeback/precommit-refreshed.json",
+      "writeback/prepared.json",
+      "writeback/preparing.json"
+    ],
+    "disclosure": "This bundle records a verified DataHub OSS v1.6.0 run through the official MCP server. The browser itself remains disconnected from DataHub and GitHub."
+  }
+}

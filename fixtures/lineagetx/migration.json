@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+  "title": "Contract customer_id after customer_key expansion",
+  "change_intent": "producer/change_intent.json",
+  "producer": {
+    "expanded_schema": "producer/schema.expanded.json",
+    "contract_schema": "producer/schema.contract.json"
+  },
+  "lineage": {
+    "context": "datahub/mcp_context.json",
+    "source_asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+    "source_column_urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD),customer_id)",
+    "max_hops": 3,
+    "discovery_complete": true
+  },
+  "participants": [
+    {
+      "participant_id": "consumer-06ca4e5e37c8c92962ee",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "kind": "DBT_SQL",
+      "asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)",
+      "lineage_degree": "1",
+      "repository": "data-platform",
+      "owner_urns": ["urn:li:corpuser:analytics-engineering"],
+      "files": ["dbt/models/stg_orders.sql"],
+      "created_at": "2026-07-17T01:02:03.000000Z",
+      "adapter_config": {
+        "dialect": "duckdb",
+        "relation": "raw_orders",
+        "relation_asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+      }
+    },
+    {
+      "participant_id": "consumer-64f6aa6861a156057c40",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "kind": "AIRFLOW_MAPPING",
+      "asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)",
+      "lineage_degree": "2",
+      "repository": "data-platform",
+      "owner_urns": ["urn:li:corpuser:analytics-engineering"],
+      "files": [
+        "airflow/dags/export_customers.py",
+        "airflow/config/export_columns.json"
+      ],
+      "created_at": "2026-07-17T01:02:03.000000Z",
+      "adapter_config": {
+        "assignment_name": "FIELD_MAPPING",
+        "config_key": "field_mapping"
+      }
+    },
+    {
+      "participant_id": "consumer-a5d3dd237f5aab8ff34c",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "kind": "SEMANTIC_APPROVAL",
+      "asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)",
+      "lineage_degree": "3+",
+      "repository": "analytics-governance",
+      "owner_urns": ["urn:li:corpuser:identity-data-owner"],
+      "files": ["semantic/customer_identity.json"],
+      "created_at": "2026-07-17T01:02:03.000000Z",
+      "automatic_change": false
+    }
+  ]
+}

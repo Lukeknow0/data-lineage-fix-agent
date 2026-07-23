@@ -1,0 +1,55 @@
+{
+  "backend": "full-datahub-oss",
+  "change_intent": "customer_id -> customer_key",
+  "platform": "postgres",
+  "source_column": "customer_id",
+  "source_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+  "source_owner": "urn:li:corpuser:data-platform-oncall",
+  "source_governance_tags": ["urn:li:tag:CriticalData"],
+  "consumers": [
+    {
+      "degree": "1",
+      "kind": "dbt_sql",
+      "participant_id": "consumer-06ca4e5e37c8c92962ee",
+      "owner": "urn:li:corpuser:analytics-engineering",
+      "governance_tags": ["urn:li:tag:CriticalData"],
+      "repository": "data-platform",
+      "files": ["dbt/models/stg_orders.sql"],
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)"
+    },
+    {
+      "degree": "2",
+      "kind": "airflow_mapping",
+      "participant_id": "consumer-64f6aa6861a156057c40",
+      "owner": "urn:li:corpuser:analytics-engineering",
+      "governance_tags": ["urn:li:tag:CriticalData"],
+      "repository": "data-platform",
+      "files": [
+        "airflow/dags/export_customers.py",
+        "airflow/config/export_columns.json"
+      ],
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)"
+    },
+    {
+      "degree": "3+",
+      "kind": "semantic_approval",
+      "participant_id": "consumer-a5d3dd237f5aab8ff34c",
+      "owner": "urn:li:corpuser:identity-data-owner",
+      "governance_tags": [
+        "urn:li:tag:CriticalData",
+        "urn:li:tag:SemanticReviewRequired"
+      ],
+      "repository": "analytics-governance",
+      "files": ["semantic/customer_identity.json"],
+      "automatic_change": false,
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)"
+    }
+  ],
+  "structured_property_urns": [
+    "urn:li:structuredProperty:io.lineagetx.migrationId",
+    "urn:li:structuredProperty:io.lineagetx.status",
+    "urn:li:structuredProperty:io.lineagetx.owner",
+    "urn:li:structuredProperty:io.lineagetx.evidenceUrl"
+  ],
+  "tag_urn": "urn:li:tag:LineageTXMigration"
+}

@@ -1,0 +1,100 @@
+{
+  "candidate": {
+    "model_id": "lineagetx-deterministic-reference-v1",
+    "proposal": {
+      "assignment_name": "FIELD_MAPPING",
+      "config_key": "field_mapping",
+      "contract_columns": [
+        "customer_key",
+        "order_id",
+        "total_amount"
+      ],
+      "expanded_columns": [
+        "customer_id",
+        "customer_key",
+        "order_id",
+        "total_amount"
+      ],
+      "expected_json_sha256": "766b1653f94fcc4d93ccc237775cbb76b62dbc1880b2bbb6b6175968247c0cec",
+      "expected_mapping": [
+        [
+          "customer_id",
+          "customer_id"
+        ],
+        [
+          "order_id",
+          "order_id"
+        ],
+        [
+          "total_amount",
+          "total_amount"
+        ]
+      ],
+      "expected_python_sha256": "4c003322a5fee7d87461db413b98a4c1117e611ca0e817a80b7289857c9a2247",
+      "json_relative_path": "airflow/config/export_columns.json",
+      "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+      "new_field": "customer_key",
+      "old_field": "customer_id",
+      "owner_urns": [
+        "urn:li:corpuser:analytics-engineering"
+      ],
+      "participant_id": "consumer-64f6aa6861a156057c40",
+      "proposed_mapping": [
+        [
+          "customer_key",
+          "customer_key"
+        ],
+        [
+          "order_id",
+          "order_id"
+        ],
+        [
+          "total_amount",
+          "total_amount"
+        ]
+      ],
+      "python_relative_path": "airflow/dags/export_customers.py",
+      "repository": "data-platform"
+    },
+    "proposal_type": "AirflowMappingProposal",
+    "rationale": [
+      "candidate_only",
+      "deterministic_policy_and_tests_must_authorize_application"
+    ]
+  },
+  "candidate_sha256": "3bd0b405fb148461dfc3b7b9cc79d42ed4d96d2bc3a31d930901e1bb58c12059",
+  "trusted_policy": {
+    "allowed_paths": [
+      "airflow/dags/export_customers.py",
+      "airflow/config/export_columns.json"
+    ],
+    "asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)",
+    "assignment_name": "FIELD_MAPPING",
+    "config_key": "field_mapping",
+    "contract_columns": [
+      "customer_key",
+      "order_id",
+      "total_amount"
+    ],
+    "dialect": null,
+    "expanded_columns": [
+      "customer_id",
+      "customer_key",
+      "order_id",
+      "total_amount"
+    ],
+    "intent_sha256": "7ba06b0789512486f0f92f3c630183f4be0dbb907b601823b5a1ee0a064237e9",
+    "kind": "AIRFLOW_MAPPING",
+    "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+    "new_field": "customer_key",
+    "old_field": "customer_id",
+    "owner_urns": [
+      "urn:li:corpuser:analytics-engineering"
+    ],
+    "participant_id": "consumer-64f6aa6861a156057c40",
+    "relation": null,
+    "repository": "data-platform",
+    "source_asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)",
+    "trusted_fixture_scope": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "destination": "customer_export",
+  "field_mapping": {
+    "customer_id": "customer_id",
+    "order_id": "order_id",
+    "total_amount": "total_amount"
+  }
+}

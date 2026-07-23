@@ -1,0 +1,211 @@
+{
+  "checks": [
+    "full_datahub_oss_official_mcp",
+    "discovery_complete",
+    "expanded_schema_old_and_new",
+    "column_lineage_hops_1_2_3",
+    "all_consumers_mapped_exactly_once",
+    "schema_owner_and_governance_signals",
+    "lineage_path_evidence"
+  ],
+  "consumer_by_participant": {
+    "consumer-06ca4e5e37c8c92962ee": {
+      "columns": [
+        "customer_id"
+      ],
+      "degree": "1",
+      "path_evidence": [
+        {
+          "metadata": {
+            "direction": "downstream",
+            "fields": {
+              "paths": {
+                "description": "Array of lineage paths showing transformation chains from source to target",
+                "structure": "Each path contains alternating entities (SCHEMA_FIELD or DATASET) and optional transformation QUERY entities"
+              }
+            },
+            "pathType": "column-level",
+            "queryType": "lineage-path-trace"
+          },
+          "pathCount": 1,
+          "paths": [
+            {
+              "path": [
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD),customer_id)"
+                },
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD),customer_id)"
+                }
+              ]
+            }
+          ],
+          "source": {
+            "column": "customer_id",
+            "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+          },
+          "target": {
+            "column": "customer_id",
+            "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)"
+          }
+        }
+      ],
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)"
+    },
+    "consumer-64f6aa6861a156057c40": {
+      "columns": [
+        "customer_id"
+      ],
+      "degree": "2",
+      "path_evidence": [
+        {
+          "metadata": {
+            "direction": "downstream",
+            "fields": {
+              "paths": {
+                "description": "Array of lineage paths showing transformation chains from source to target",
+                "structure": "Each path contains alternating entities (SCHEMA_FIELD or DATASET) and optional transformation QUERY entities"
+              }
+            },
+            "pathType": "column-level",
+            "queryType": "lineage-path-trace"
+          },
+          "pathCount": 1,
+          "paths": [
+            {
+              "path": [
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD),customer_id)"
+                },
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD),customer_id)"
+                },
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD),customer_id)"
+                }
+              ]
+            }
+          ],
+          "source": {
+            "column": "customer_id",
+            "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+          },
+          "target": {
+            "column": "customer_id",
+            "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)"
+          }
+        }
+      ],
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)"
+    },
+    "consumer-a5d3dd237f5aab8ff34c": {
+      "columns": [
+        "customer_id"
+      ],
+      "degree": "3+",
+      "path_evidence": [
+        {
+          "metadata": {
+            "direction": "downstream",
+            "fields": {
+              "paths": {
+                "description": "Array of lineage paths showing transformation chains from source to target",
+                "structure": "Each path contains alternating entities (SCHEMA_FIELD or DATASET) and optional transformation QUERY entities"
+              }
+            },
+            "pathType": "column-level",
+            "queryType": "lineage-path-trace"
+          },
+          "pathCount": 1,
+          "paths": [
+            {
+              "path": [
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD),customer_id)"
+                },
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD),customer_id)"
+                },
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,ops.customer_export,PROD),customer_id)"
+                },
+                {
+                  "fieldPath": "customer_id",
+                  "parent": {
+                    "type": "DATASET",
+                    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)"
+                  },
+                  "type": "SCHEMA_FIELD",
+                  "urn": "urn:li:schemaField:(urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD),customer_id)"
+                }
+              ]
+            }
+          ],
+          "source": {
+            "column": "customer_id",
+            "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+          },
+          "target": {
+            "column": "customer_id",
+            "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)"
+          }
+        }
+      ],
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,semantic.customer_identity,PROD)"
+    }
+  },
+  "ordered_participant_ids": [
+    "consumer-06ca4e5e37c8c92962ee",
+    "consumer-64f6aa6861a156057c40",
+    "consumer-a5d3dd237f5aab8ff34c"
+  ],
+  "source_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,ecommerce.raw.orders,PROD)"
+}

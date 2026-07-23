@@ -1,0 +1,55 @@
+{
+  "auto_merge": false,
+  "candidates": [
+    {
+      "branch": "lineagetx/ltx-7ba06b0789512486f0f92f3c/consumer-06ca4e5e37c8c92962ee",
+      "changed_files": [
+        "dbt/models/stg_orders.sql"
+      ],
+      "commit_sha": "e22e73b83938805d5dc93da26025ef62730b72a9",
+      "merged": false,
+      "participant_id": "consumer-06ca4e5e37c8c92962ee",
+      "repository": "data-platform"
+    },
+    {
+      "branch": "lineagetx/ltx-7ba06b0789512486f0f92f3c/consumer-64f6aa6861a156057c40",
+      "changed_files": [
+        "airflow/config/export_columns.json",
+        "airflow/dags/export_customers.py"
+      ],
+      "commit_sha": "ee86e7ad0139f70d2046d49189e542629b56118b",
+      "merged": false,
+      "participant_id": "consumer-64f6aa6861a156057c40",
+      "repository": "data-platform"
+    },
+    {
+      "branch": "lineagetx/ltx-7ba06b0789512486f0f92f3c/consumer-a5d3dd237f5aab8ff34c",
+      "changed_files": [
+        "semantic/customer_identity.json"
+      ],
+      "commit_sha": "3e715d15e31c0242be7e3e393c6bb243041fba60",
+      "merged": false,
+      "participant_id": "consumer-a5d3dd237f5aab8ff34c",
+      "repository": "analytics-governance"
+    }
+  ],
+  "coordinated_pr": {
+    "commit_sha": "",
+    "evidence_url": "https://replay.lineagetx.invalid/ltx-7ba06b0789512486f0f92f3c/publication.json",
+    "kind": "COORDINATED_PR",
+    "merged": false,
+    "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+    "recorded_at": "2026-07-22T15:36:10.651891Z",
+    "reference": "https://replay.lineagetx.invalid/ltx-7ba06b0789512486f0f92f3c/coordinated-pr"
+  },
+  "producer_gate": {
+    "commit_sha": "",
+    "evidence_url": "https://replay.lineagetx.invalid/ltx-7ba06b0789512486f0f92f3c/coordinated-pr",
+    "kind": "PRODUCER_GATE_RELEASED",
+    "merged": false,
+    "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+    "recorded_at": "2026-07-22T15:36:10.655892Z",
+    "reference": "check-run:lineagetx/safe-to-contract:2222222222222222222222222222222222222222"
+  },
+  "title": "LineageTX ltx-7ba06b0789512486f0f92f3c: customer_id to customer_key"
+}

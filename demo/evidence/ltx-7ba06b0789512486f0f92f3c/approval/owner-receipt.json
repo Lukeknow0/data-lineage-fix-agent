@@ -1,0 +1,18 @@
+{
+  "approved_at": "2026-07-22T15:34:56Z",
+  "approved_mapping": "customer_id -> customer_key",
+  "evidence_url": "https://api.github.com/repos/Lukeknow0/data-lineage-fix-agent/issues/comments/5048170646",
+  "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+  "owner_urn": "urn:li:corpuser:identity-data-owner",
+  "participant_id": "consumer-a5d3dd237f5aab8ff34c",
+  "verification": {
+    "actor_id": 125708796,
+    "actor_login": "Lukeknow0",
+    "author_association": "OWNER",
+    "evidence_sha256": "7c89973f59452f376728a851c7fe912c4282cb5f6f79a7b66cc1576785fe1919",
+    "provider": "github-rest-api-v3",
+    "resource_id": 5048170646,
+    "resource_kind": "issue_comment",
+    "source_api_url": "https://api.github.com/repos/Lukeknow0/data-lineage-fix-agent/issues/comments/5048170646"
+  }
+}

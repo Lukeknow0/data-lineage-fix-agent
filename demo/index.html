@@ -5,105 +5,286 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Verified evidence replay for the DataLineage Fix Agent."
+      content="Run the verified interactive LineageTX replay: a two-phase-commit-inspired safety gate backed by published DataHub OSS evidence."
     />
-    <title>Data Lineage Fix Agent</title>
+    <title>LineageTX — Schema change transaction console</title>
     <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
   </head>
   <body>
-    <main>
-      <header>
-        <div class="eyebrow">
-          RECORDED VERIFIED LOCAL RUN · 20260716T091507467904Z
+    <a class="skip-link" href="#transaction-graph">Skip to transaction graph</a>
+
+    <main class="console">
+      <header class="masthead">
+        <a class="wordmark" href="#top" aria-label="LineageTX home">
+          <span class="wordmark-mark" aria-hidden="true">LT</span>
+          <span>LineageTX</span>
+        </a>
+        <div class="environment">
+          <span class="pulse" aria-hidden="true"></span>
+          Verified interactive replay / live OSS evidence published
         </div>
-        <h1>Schema drift,<br /><em>closed-loop.</em></h1>
-        <p class="lede">
-          A bounded repair agent reads DataHub context, identifies the exact
-          downstream break, patches the repository fixture, proves the regression
-          green, and writes the verified tag back.
-        </p>
-        <div class="notice">
-          Synthetic public fixture — no customer data · Browser evidence replay —
-          not a live DataHub connection
-        </div>
+        <nav aria-label="Project links">
+          <a href="evidence/20260716T091507467904Z/EVIDENCE.md">Legacy baseline</a>
+          <a
+            href="https://github.com/Lukeknow0/data-lineage-fix-agent"
+            rel="noreferrer"
+          >GitHub source</a>
+        </nav>
       </header>
 
-      <section class="rail" aria-label="Captured run stages">
-        <div class="step done"><b>01</b><span>Context</span><strong>✓</strong></div>
-        <div class="step done"><b>02</b><span>Finding</span><strong>✓</strong></div>
-        <div class="step done"><b>03</b><span>Patch</span><strong>✓</strong></div>
-        <div class="step done"><b>04</b><span>Regression</span><strong>✓</strong></div>
-        <div class="step done"><b>05</b><span>Write-back</span><strong>✓</strong></div>
-      </section>
-
-      <section class="grid">
-        <article>
-          <label>FINDING</label>
-          <h2>DLFA-SCHEMA-001</h2>
-          <p class="big">customer_id → customer_key</p>
-          <dl>
-            <dt>Severity</dt><dd class="high">HIGH</dd>
-            <dt>Signal</dt><dd>breaking-schema-drift</dd>
-            <dt>Downstream</dt><dd>analytics.mart_customer_revenue</dd>
-            <dt>Owner</dt><dd>Data Platform On-call</dd>
-          </dl>
-        </article>
-        <article>
-          <label>REPAIR DIFF</label>
-          <pre id="diff" aria-live="polite">Loading captured patch…</pre>
-          <p class="muted">
-            The agent follows the explicit DataHub rename hint; no model call is
-            required for this bounded path.
-          </p>
-        </article>
-      </section>
-
-      <section class="grid">
-        <article>
-          <label>REGRESSION</label>
-          <div class="terminal">
-            <div>BEFORE <span class="bad">✕ no such column: customer_id</span></div>
-            <div>AFTER&nbsp; <span class="good">✓ Ran 1 test in 0.000s · OK</span></div>
-          </div>
-          <a
-            class="button"
-            href="evidence/20260716T091507467904Z/regression_test.py"
-          >Open regression test ↗</a>
-        </article>
-        <article>
-          <label>WRITE-BACK</label>
-          <p class="big">DataLineageFixVerified</p>
-          <p class="good">✓ mutation success · read-back verified</p>
-          <p class="mono">urn:li:tag:DataLineageFixVerified</p>
-          <a
-            class="button"
-            href="evidence/20260716T091507467904Z/writeback.json"
-          >Inspect captured trace ↗</a>
-        </article>
-      </section>
-
-      <section class="integrity">
-        <div>
-          <label>INTEGRITY</label>
-          <h2 id="status" aria-live="polite">Evidence manifest ready</h2>
-          <p>
-            SHA-256 hashes from the captured run are published for inspection.
-            Browser hash comparison — not a digital signature.
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="section-code">CHANGE COORDINATOR / LTX-7BA06B0789512486F0F92F3C</p>
+          <h1 id="hero-title">One schema change.<br />The whole graph agrees.</h1>
+          <p class="hero-definition">
+            LineageTX is a two-phase-commit-inspired safety gate for schema
+            changes across the data graph. DataHub finds every affected
+            consumer; isolated candidate fixes must verify before the Producer
+            PR is released.
           </p>
         </div>
-        <button id="verify" type="button">Verify evidence files</button>
+
+        <aside class="replay-callout" aria-label="Replay disclosure">
+          <span class="callout-index">PUBLIC MODE / 01</span>
+          <strong>Verified interactive replay; live DataHub OSS evidence is published.</strong>
+          <p>
+            Deterministic playback of the captured run. This page is not
+            connected to DataHub or GitHub and performs no external mutation.
+          </p>
+        </aside>
+      </section>
+
+      <section class="control-strip" aria-label="Replay controls and status">
+        <div class="control-status">
+          <span class="control-label">Migration state</span>
+          <strong id="migration-state" class="state-badge state-detected" aria-live="polite">DETECTED</strong>
+        </div>
+        <div class="control-actions" role="group" aria-label="Replay controls">
+          <button id="start-replay" class="button button-primary" type="button">Start replay</button>
+          <button id="reset-replay" class="button" type="button">Reset</button>
+          <button id="abort-replay" class="button button-danger" type="button" disabled>Abort candidates</button>
+        </div>
+      </section>
+
+      <ol class="state-rail" aria-label="Migration state machine">
+        <li data-state-step="DETECTED" class="is-current"><span>01</span>DETECTED</li>
+        <li data-state-step="PREPARING"><span>02</span>PREPARING</li>
+        <li data-state-step="NEEDS_APPROVAL"><span>03</span>NEEDS_APPROVAL</li>
+        <li data-state-step="PREPARED"><span>04</span>PREPARED</li>
+        <li data-state-step="COMMITTED"><span>05</span>COMMITTED</li>
+        <li data-state-step="ABORTED" class="abort-step"><span>×</span>ABORTED</li>
+      </ol>
+
+      <section class="context-tape" aria-label="DataHub context used by the replay">
+        <span class="tape-label">Replay of verified official-MCP run</span>
+        <span>Column-level lineage</span>
+        <span><strong>3</strong> hops</span>
+        <span><strong>2</strong> repositories</span>
+        <span><strong>3</strong> accountable owners</span>
+        <span>Schema · owners · tags</span>
+      </section>
+
+      <section
+        class="transaction"
+        id="transaction-graph"
+        aria-labelledby="transaction-title"
+      >
+        <div class="transaction-heading">
+          <div>
+            <p class="section-code">TRANSACTION GRAPH / LINEAGETX OVERLAY</p>
+            <h2 id="transaction-title">Prepare every consumer, then open one gate.</h2>
+          </div>
+          <p>
+            Overlay colors show LineageTX transaction state; they do not imply
+            native DataHub node coloring.
+          </p>
+        </div>
+
+        <div class="graph-stage" aria-label="Producer change fans out to three consumers and converges at the merge gate">
+          <article class="producer-node node-panel">
+            <span class="node-kicker">PRODUCER PR / #42</span>
+            <div class="asset-name">ecommerce.raw.orders</div>
+            <div class="schema-change">
+              <del>customer_id</del>
+              <span aria-hidden="true">→</span>
+              <ins>customer_key</ins>
+            </div>
+            <dl class="node-meta">
+              <dt>Intent</dt><dd>remove deprecated alias</dd>
+              <dt>Phase</dt><dd>CONTRACT</dd>
+              <dt>Gate</dt><dd id="producer-gate-status">BLOCKED</dd>
+            </dl>
+          </article>
+
+          <div class="fork connector" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+
+          <div class="consumer-stack" aria-label="Affected consumers">
+            <article class="consumer-row" id="consumer-dbt" data-consumer-state="PENDING">
+              <div class="hop-marker"><span>HOP</span><strong>1</strong></div>
+              <div class="consumer-main">
+                <div class="consumer-heading">
+                  <div>
+                    <span class="node-kicker">AUTOMATIC / data-platform</span>
+                    <h3>dbt SQL candidate</h3>
+                  </div>
+                  <strong id="dbt-state" class="consumer-state">PENDING</strong>
+                </div>
+                <p>SQLGlot rewrites the exact column reference; expanded and contract-schema tests decide acceptance.</p>
+                <div class="file-list"><code>dbt/models/stg_orders.sql</code></div>
+                <div class="verification-line" id="dbt-verification">No candidate written</div>
+              </div>
+            </article>
+
+            <article class="consumer-row" id="consumer-airflow" data-consumer-state="PENDING">
+              <div class="hop-marker"><span>HOP</span><strong>2</strong></div>
+              <div class="consumer-main">
+                <div class="consumer-heading">
+                  <div>
+                    <span class="node-kicker">AUTOMATIC / data-platform</span>
+                    <h3>Airflow field mapping</h3>
+                  </div>
+                  <strong id="airflow-state" class="consumer-state">PENDING</strong>
+                </div>
+                <p>One isolated candidate must keep the Python DAG and mapping configuration consistent.</p>
+                <div class="file-list">
+                  <code>airflow/dags/export_customers.py</code>
+                  <code>airflow/config/export_columns.json</code>
+                </div>
+                <div class="verification-line" id="airflow-verification">0 / 2 files verified</div>
+              </div>
+            </article>
+
+            <article class="consumer-row" id="consumer-semantic" data-consumer-state="PENDING">
+              <div class="hop-marker"><span>HOP</span><strong>3+</strong></div>
+              <div class="consumer-main">
+                <div class="consumer-heading">
+                  <div>
+                    <span class="node-kicker">OWNER DECISION / analytics-governance</span>
+                    <h3>Customer identity export</h3>
+                  </div>
+                  <strong id="semantic-state" class="consumer-state">PENDING</strong>
+                </div>
+                <p>The old field may mean an external account ID. Policy refuses the ambiguous edit.</p>
+                <div class="semantic-action">
+                  <span id="semantic-writes">0 writes</span>
+                  <button id="approve-replay" class="button button-approval" type="button" disabled>
+                    Simulate owner approval
+                  </button>
+                </div>
+                <div class="verification-line" id="semantic-verification">Owner: Identity Data Owner</div>
+              </div>
+            </article>
+          </div>
+
+          <div class="converge connector" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+
+          <article class="gate-node node-panel" id="gate-node" data-gate-state="BLOCKED">
+            <span class="node-kicker">PRODUCER SAFETY GATE</span>
+            <div class="gate-count"><strong id="verified-count">0</strong><span>/ 3 verified</span></div>
+            <div class="gate-lock" aria-hidden="true"><span></span></div>
+            <p id="gate-message" aria-live="polite">
+              3 consumers unverified — upstream change remains blocked.
+            </p>
+            <div class="gate-receipt" id="gate-receipt">
+              No coordination PR · no merge
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="run-ledger" aria-label="Replay event ledger and safety policy">
+        <div class="event-ledger">
+          <div class="ledger-heading">
+            <div>
+              <p class="section-code">EVENT STREAM</p>
+              <h2>Transaction receipts</h2>
+            </div>
+            <span id="event-count">1 event</span>
+          </div>
+          <ol id="event-log" aria-live="polite" aria-relevant="additions text">
+            <li><time>T+00.0s</time><strong>DETECTED</strong><span>ChangeIntent registered; Producer PR gate closed.</span></li>
+          </ol>
+        </div>
+
+        <div class="policy-ledger">
+          <div class="ledger-heading">
+            <div>
+              <p class="section-code">EXECUTION POLICY</p>
+              <h2>Deterministic guardrails</h2>
+            </div>
+          </div>
+          <dl>
+            <div><dt>Candidate</dt><dd>Deterministic generator only; no shell access.</dd></div>
+            <div><dt>Prepare</dt><dd>SQLGlot, tests, lineage, and policy decide.</dd></div>
+            <div><dt>Isolation</dt><dd>Temporary worktree + branch per repository.</dd></div>
+            <div><dt>Abort</dt><dd>Cleans unmerged candidates only; never claims deployed rollback.</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="writeback" aria-labelledby="writeback-title">
+        <div>
+          <p class="section-code">DATAHUB WRITE-BACK / REPLAYED RECEIPT</p>
+          <h2 id="writeback-title">The graph keeps the migration receipt.</h2>
+          <p>
+            In a live run, Structured Properties and a Tag carry the migration
+            ID, per-consumer state, owner, and evidence link for the next human
+            or agent. This browser only replays that receipt.
+          </p>
+        </div>
+        <dl class="writeback-values">
+          <div><dt>migration.id</dt><dd>ltx-7ba06b0789512486f0f92f3c</dd></div>
+          <div><dt>migration.state</dt><dd id="writeback-state">DETECTED</dd></div>
+          <div><dt>verified.consumers</dt><dd id="writeback-consumers">0 / 3</dd></div>
+          <div><dt>evidence</dt><dd>sha256 manifest + transaction events</dd></div>
+        </dl>
+      </section>
+
+      <section class="evidence-band" aria-labelledby="evidence-title">
+        <div class="evidence-copy">
+          <p class="section-code">PRESERVED BASELINE / 20260716T091507467904Z</p>
+          <h2 id="evidence-title">Verify the replay and preserved baseline.</h2>
+          <p>
+            The browser requires the exact canonical replay and eight-file
+            legacy manifests, then checks every listed byte against SHA-256.
+            It also verifies the 31-file manifest from the captured DataHub OSS
+            run. This is an integrity comparison, not a digital signature.
+          </p>
+          <div class="evidence-actions">
+            <button id="verify-evidence" class="button button-primary" type="button">Verify replay + all evidence</button>
+            <a class="button" href="evidence/20260716T091507467904Z/EVIDENCE.md">Open legacy baseline</a>
+            <a class="button" href="evidence/ltx-7ba06b0789512486f0f92f3c/manifest.json">Open live manifest</a>
+          </div>
+          <strong id="evidence-status" class="evidence-status" aria-live="polite">Replay, legacy, and live manifests ready</strong>
+          <strong id="live-proof-status" class="evidence-status is-pending" aria-live="polite">Live DataHub OSS evidence: published; verification ready</strong>
+        </div>
+        <div class="diff-window">
+          <div class="diff-title"><span></span><span></span><span></span><strong>legacy / patch.diff</strong></div>
+          <pre id="legacy-diff" tabindex="0">Loading captured patch…</pre>
+        </div>
       </section>
 
       <footer>
-        <span>
-          Captured through the official DataHub MCP Server ·
-          mcp-server-datahub==0.6.0 · serverInfo 3.4.4
-        </span>
-        <a
-          href="https://github.com/Lukeknow0/data-lineage-fix-agent"
-          rel="noreferrer"
-        >Public source repository ↗</a>
+        <p>
+          LineageTX coordinates change safety; it does not provide database-level
+          atomicity across systems. COMMITTED means candidate commits and a
+          coordination PR are ready—nothing is auto-merged.
+        </p>
+        <div>
+          <a href="lineagetx-replay.json">Replay fixture</a>
+          <a href="lineagetx-replay.manifest.json">Replay SHA manifest</a>
+          <a href="evidence/20260716T091507467904Z/manifest.json">Legacy SHA manifest</a>
+          <a href="evidence/ltx-7ba06b0789512486f0f92f3c/manifest.json">Live evidence manifest</a>
+          <a
+            href="https://github.com/Lukeknow0/data-lineage-fix-agent"
+            rel="noreferrer"
+          >Public repository</a>
+        </div>
       </footer>
     </main>
   </body>
