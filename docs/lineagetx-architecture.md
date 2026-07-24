@@ -197,8 +197,8 @@ must be retried.
   or GitHub and does not prove the live workflow ran.
 - **Live evidence run:** uses real DataHub OSS Quickstart, official MCP discovery
   and read-back, isolated local Git repositories, and DataHub write-back. The
-  public bundle records this mode. The video remains pending, and the public
-  replay does not imply that it is a live control plane.
+  public bundles and recorded rerun video evidence this mode. The public replay
+  remains explicitly separate and does not imply that it is a live control plane.
 
 See [security-model.md](security-model.md) for trust boundaries and
 [demo-script.md](demo-script.md) for the recorded demonstration.

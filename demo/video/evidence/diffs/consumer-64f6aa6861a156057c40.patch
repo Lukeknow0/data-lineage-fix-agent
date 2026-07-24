@@ -1,0 +1,29 @@
+diff --git a/airflow/config/export_columns.json b/airflow/config/export_columns.json
+index 8a0190a..15ebe7b 100644
+--- a/airflow/config/export_columns.json
++++ b/airflow/config/export_columns.json
+@@ -1,7 +1,7 @@
+ {
+   "destination": "customer_export",
+   "field_mapping": {
+-    "customer_id": "customer_id",
++    "customer_key": "customer_key",
+     "order_id": "order_id",
+     "total_amount": "total_amount"
+   }
+diff --git a/airflow/dags/export_customers.py b/airflow/dags/export_customers.py
+index 3b798f3..3414e3a 100644
+--- a/airflow/dags/export_customers.py
++++ b/airflow/dags/export_customers.py
+@@ -1,9 +1,9 @@
+ """Trusted fixture DAG field mapping used by the LineageTX demo."""
+ 
+ FIELD_MAPPING = {
+-    "customer_id": "customer_id",
++    "customer_key": "customer_key",
+     "order_id": "order_id",
+-    "total_amount": "total_amount",
++    "total_amount": "total_amount"
+ }
+ 
+ 

@@ -1,0 +1,51 @@
+LineageTX — 2:56 demo transcript
+
+The product frames are a verified interactive replay. The browser is not
+connected to DataHub or GitHub and performs no external mutation. Frames marked
+"Recorded live rerun" summarize the real DataHub OSS execution whose complete
+SHA-256 manifest is published beside this transcript.
+
+This pull request renames one column: customer_id to customer_key. But three
+downstream consumers, across two repositories and multiple owners, depend on
+it. LineageTX is a schema-change safety gate across the data graph, inspired by
+two-phase commit. The Producer change starts blocked.
+
+The real run used full DataHub OSS v1.6.0, with GMS on port 8080. Through the
+official DataHub MCP server, LineageTX read the source schema, three-hop column
+lineage, owners, Tags, Structured Properties, and path evidence. Discovery
+completed with exactly three known consumers, then froze the impact fingerprint
+so the graph could not silently change before release.
+
+In the prepare phase, deterministic structured candidates run inside isolated
+Git worktrees. The generator cannot choose its own repository, files, or
+authority. The dbt repair is accepted only after SQLGlot and
+expanded-versus-contract schema checks pass. The Airflow repair must update its
+Python mapping and JSON configuration together. One green file is not enough;
+both must agree.
+
+The third consumer is different. customer_id may mean an external account
+identifier. Policy refuses to guess, writes zero files, and moves the
+transaction to NEEDS_APPROVAL. Two verified consumers still leave the Producer
+gate blocked.
+
+The real resume used an owner-bound GitHub API receipt. It verifies the
+migration, participant, DataHub owner, exact customer_id to customer_key
+mapping, current state, actor identity, and repository association. Only then
+does the semantic candidate run and verify.
+
+All three candidates now exist as real, unmerged Git commits. Before release,
+LineageTX reads DataHub again and requires the fresh impact fingerprint to match
+the frozen one. The transaction reaches PREPARED, then COMMITTED. Three of three
+consumers are VERIFIED. Zero remain unverified. The Producer safety check is
+released, but nothing is automatically merged.
+
+Every transition is written back to real DataHub GMS and read back with a
+SHA-256 receipt. Structured Properties and a migration Tag preserve the
+migration ID, per-asset status, accountable owner, and evidence link. The
+browser independently verifies the replay, all eight legacy artifacts, and 31
+live DataHub artifacts byte for byte.
+
+COMMITTED does not claim database-level atomicity, automatic merge, or rollback
+of deployed systems. It means the candidate commits, coordination receipt, and
+released safety gate exist. GitHub pull requests change code. LineageTX changes
+the whole data graph safely.

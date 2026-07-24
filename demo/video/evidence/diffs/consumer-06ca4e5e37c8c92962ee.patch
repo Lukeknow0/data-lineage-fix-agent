@@ -1,0 +1,11 @@
+diff --git a/dbt/models/stg_orders.sql b/dbt/models/stg_orders.sql
+index 0cedf70..2655453 100644
+--- a/dbt/models/stg_orders.sql
++++ b/dbt/models/stg_orders.sql
+@@ -1,5 +1,5 @@
+ SELECT
+   order_id,
+-  customer_id,
++  customer_key,
+   total_amount
+ FROM raw_orders

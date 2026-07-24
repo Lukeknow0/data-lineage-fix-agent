@@ -1,0 +1,43 @@
+{
+  "base_checkout_unchanged": true,
+  "candidate_branch": "lineagetx/ltx-7ba06b0789512486f0f92f3c/consumer-06ca4e5e37c8c92962ee",
+  "result": {
+    "changed_files": [
+      "dbt/models/stg_orders.sql"
+    ],
+    "checks": [
+      "expected_sha256",
+      "sqlglot_ast",
+      "column_occurrence_count",
+      "path_allowlist",
+      "expanded_schema_compile",
+      "contract_schema_compile"
+    ],
+    "evidence": {
+      "after_sha256": "e019750adc40a5af2137b1ecb7aae6db0f3f507e7c7490364cc6d10218c33024",
+      "before_sha256": "27dd91aa2f2e605c9dba5306a919c5d33eb6612392e80c6dbd6bc1817bb63be3",
+      "contract_columns": [
+        "customer_key",
+        "order_id",
+        "total_amount"
+      ],
+      "execution_scope": "trusted_fixture_fixed_adapter_no_repo_commands",
+      "expanded_columns": [
+        "customer_id",
+        "customer_key",
+        "order_id",
+        "total_amount"
+      ],
+      "new_field": "customer_key",
+      "occurrences": 1,
+      "old_field": "customer_id",
+      "owners": [
+        "urn:li:corpuser:analytics-engineering"
+      ]
+    },
+    "participant_id": "consumer-06ca4e5e37c8c92962ee",
+    "required_owner_urn": null,
+    "state": "VERIFIED"
+  },
+  "worktree_scope": "isolated-lineagetx-candidate"
+}

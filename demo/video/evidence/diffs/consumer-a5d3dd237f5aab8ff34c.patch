@@ -1,0 +1,16 @@
+diff --git a/semantic/customer_identity.json b/semantic/customer_identity.json
+index 97ccb74..974f5a2 100644
+--- a/semantic/customer_identity.json
++++ b/semantic/customer_identity.json
+@@ -1,9 +1,9 @@
+ {
+   "dimensions": {
+-    "customer_id": {
++    "customer_key": {
+       "description": "Canonical customer identity; replacement semantics require owner approval.",
+       "semantic_type": "customer_identity",
+-      "source_field": "customer_id"
++      "source_field": "customer_key"
+     }
+   },
+   "model": "customer_identity",

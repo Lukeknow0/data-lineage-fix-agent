@@ -1,6 +1,6 @@
 {
   "mode": "interactive-synthetic-replay",
-  "disclosure": "This is a verified interactive replay of a captured live run. The browser remains deterministic and is not connected to DataHub or GitHub; the DataHub OSS evidence is published and the video is pending.",
+  "disclosure": "This is a verified interactive replay of a captured live run. The browser remains deterministic and is not connected to DataHub or GitHub; the DataHub OSS evidence and recorded rerun video are published.",
   "liveVerified": true,
   "migration": {
     "id": "ltx-7ba06b0789512486f0f92f3c",

@@ -1,0 +1,25 @@
+{
+  "asset_urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,analytics.stg_orders,PROD)",
+  "candidate_branch": "lineagetx/ltx-7ba06b0789512486f0f92f3c/consumer-06ca4e5e37c8c92962ee",
+  "candidate_commit_sha": "313cac4148ffdcb10b2aec740bf95ba3b6b3cfa4",
+  "changed_files": [
+    "dbt/models/stg_orders.sql"
+  ],
+  "checks": [
+    "expected_sha256",
+    "sqlglot_ast",
+    "column_occurrence_count",
+    "path_allowlist",
+    "expanded_schema_compile",
+    "contract_schema_compile"
+  ],
+  "kind": "DBT_SQL",
+  "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+  "owner_urns": [
+    "urn:li:corpuser:analytics-engineering"
+  ],
+  "participant_id": "consumer-06ca4e5e37c8c92962ee",
+  "proposal_sha256": "0be5bd330714c03db67888a833251589be7c34d62019a3e0b3cb65aff6942add",
+  "repository": "data-platform",
+  "unmerged": true
+}

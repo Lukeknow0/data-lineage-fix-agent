@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "video": {
+    "file": "lineagetx-demo.mp4",
+    "duration_seconds": 176,
+    "resolution": "1920x1080",
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "sha256": "4eb22af2a7a233c7718b3343b132faf1e83271e417d5aac25bea2bce7bba57db"
+  },
+  "recorded_live_rerun": {
+    "completed_at": "2026-07-23T17:45:48.958746Z",
+    "application_base_commit": "570ec4c815ff48aa39d6a5ebb268a5fd8c56ed1c",
+    "datahub_backend": "full-datahub-oss",
+    "datahub_version": "v1.6.0",
+    "gms_origin": "http://127.0.0.1:8080",
+    "official_mcp_transport": "datahub-oss+official-mcp-server-datahub==0.6.0",
+    "migration_id": "ltx-7ba06b0789512486f0f92f3c",
+    "final_state": "COMMITTED",
+    "discovery_complete": true,
+    "column_lineage_hops": 3,
+    "unverified_consumers": 0,
+    "base_checkouts_unchanged": true,
+    "auto_merged": false,
+    "candidate_commit_shas": [
+      "313cac4148ffdcb10b2aec740bf95ba3b6b3cfa4",
+      "0b81f3e990e8f05cda48638c4bff5ea4e08e4fde",
+      "fa3730d5c77abc3d0b2d686446b238af2e2e5dca"
+    ],
+    "owner_approval_api_url": "https://api.github.com/repos/Lukeknow0/data-lineage-fix-agent/issues/comments/5048170646",
+    "evidence_manifest": "evidence/manifest.json",
+    "evidence_file_count": 31,
+    "evidence_aggregate_sha256": "4c205a73237dc606d76e62c9e6a81c9ad1ce85ef33caccd4bee3b44b7c889cfd"
+  },
+  "disclosure": "Product frames are a verified interactive replay and perform no external mutation. Frames labeled recorded live rerun summarize the separately published DataHub OSS evidence bundle."
+}

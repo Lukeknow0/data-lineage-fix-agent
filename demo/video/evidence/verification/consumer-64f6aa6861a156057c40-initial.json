@@ -1,0 +1,50 @@
+{
+  "base_checkout_unchanged": true,
+  "candidate_branch": "lineagetx/ltx-7ba06b0789512486f0f92f3c/consumer-64f6aa6861a156057c40",
+  "result": {
+    "changed_files": [
+      "airflow/config/export_columns.json",
+      "airflow/dags/export_customers.py"
+    ],
+    "checks": [
+      "expected_sha256_both_files",
+      "python_ast_literal_mapping",
+      "json_config_schema",
+      "cross_file_consistency",
+      "deterministic_mapping_policy",
+      "path_allowlist",
+      "expanded_schema_mapping",
+      "contract_schema_mapping"
+    ],
+    "evidence": {
+      "approved_mapping": {
+        "customer_key": "customer_key",
+        "order_id": "order_id",
+        "total_amount": "total_amount"
+      },
+      "contract_columns": [
+        "customer_key",
+        "order_id",
+        "total_amount"
+      ],
+      "execution_scope": "trusted_fixture_fixed_adapter_no_repo_commands",
+      "expanded_columns": [
+        "customer_id",
+        "customer_key",
+        "order_id",
+        "total_amount"
+      ],
+      "json_after_sha256": "6057eb1770f68113cac2500de03e2aeb907f2d675524a344844e4fd1fe5be0a2",
+      "json_before_sha256": "766b1653f94fcc4d93ccc237775cbb76b62dbc1880b2bbb6b6175968247c0cec",
+      "owners": [
+        "urn:li:corpuser:analytics-engineering"
+      ],
+      "python_after_sha256": "8d86557650202c54d9a4466f8e4efd4a1ed6e9f90c1b02ce89b23409ece556c5",
+      "python_before_sha256": "4c003322a5fee7d87461db413b98a4c1117e611ca0e817a80b7289857c9a2247"
+    },
+    "participant_id": "consumer-64f6aa6861a156057c40",
+    "required_owner_urn": null,
+    "state": "VERIFIED"
+  },
+  "worktree_scope": "isolated-lineagetx-candidate"
+}
